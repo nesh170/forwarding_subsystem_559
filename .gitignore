@@ -64,3 +64,6 @@
 *testbench/
 * *_sim/
 *output_files/
+
+# ignore pin dumps
+*dump.txt
