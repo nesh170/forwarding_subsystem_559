@@ -36,6 +36,8 @@ ARCHITECTURE cbl OF control_block_logic IS
 	CONSTANT MAX_FRAME_SIZE : integer := 8192; 
 	
 BEGIN
+	data_out <= control_block;
+
 	PROCESS(clock,reset)
 	BEGIN
 		if(reset = '1') then state_reg <= wait_state;
@@ -43,7 +45,7 @@ BEGIN
 		end if;
 	END PROCESS;
 	
-	PROCESS(state_reg, port_change, is_empty_temp, counter)
+	PROCESS(state_reg, port_change, is_empty_temp, counter, control_block)
 	BEGIN
 		case state_reg is
 			when wait_state => 
@@ -71,7 +73,7 @@ BEGIN
 			END case;
 	END PROCESS;
 
-	PROCESS(receive_port_read)
+	PROCESS(receive_port_read, previous_port, current_port)
 	BEGIN
 		case receive_port_read is
 			when "0001" => 
@@ -93,7 +95,7 @@ BEGIN
 		end if;
 	END PROCESS;
 	
-	PROCESS(receive_port_read, current_read_enable)
+	PROCESS(receive_port_read, current_read_enable, is_empty, data_in_1, data_in_2, data_in_3, data_in_4)
 	BEGIN
 		case receive_port_read is 
 			when "0001" =>
@@ -120,6 +122,12 @@ BEGIN
 				else read_enable <= "0000";
 				end if;	
 				is_empty_temp <= is_empty(3);
+			when others =>
+				control_block <= data_in_1;
+				if(current_read_enable = '1') then read_enable <= "0001";
+				else read_enable <= "0000";
+				end if;
+				is_empty_temp <= is_empty(0);
 		END CASE;
 	END PROCESS;
 	
