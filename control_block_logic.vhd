@@ -26,10 +26,10 @@ ARCHITECTURE cbl OF control_block_logic IS
 		(wait_state,check_empty_state,empty_state,peek_queue_state,write_queue_state,pop_queue_state);
 	SIGNAL state_reg, next_state: state_type;
 	
-	SIGNAL previous_port: integer range 1 to 4 := 1;
+	SIGNAL previous_port: integer range 0 to 4 := 0;
 	SIGNAL current_port: integer range 0 to 4;
-	SIGNAL port_change: STD_LOGIC;
-	SIGNAL counter: integer range 0 to 10239;
+	SIGNAL port_change: STD_LOGIC := '1';
+	SIGNAL counter: integer range 0 to 10239 := 0;
 	SIGNAL is_empty_temp: STD_LOGIC;
 	SIGNAL control_block: STD_LOGIC_VECTOR(23 DOWNTO 0) ;
 	SIGNAL current_read_enable: STD_LOGIC; --create drivers for this
@@ -41,7 +41,9 @@ BEGIN
 	PROCESS(clock,reset)
 	BEGIN
 		if(reset = '1') then state_reg <= wait_state;
-		elsif (clock'event and clock = '1') then state_reg <= next_state;
+		elsif (clock'event and clock = '1') then 
+			state_reg <= next_state;
+			if(state_reg /= peek_queue_state) then counter <= counter; end if;
 		end if;
 	END PROCESS;
 	
@@ -56,12 +58,14 @@ BEGIN
 				if (is_empty_temp = '1') then next_state <= empty_state;
 				else next_state <= peek_queue_state;
 				end if;
-			when empty_state => next_state <= wait_state;
+			when empty_state => 
+				next_state <= wait_state;
 			when peek_queue_state =>
 				counter <= counter + to_integer(unsigned(control_block(10 downto 0)));
 				if(counter <= MAX_FRAME_SIZE AND is_empty_temp = '0') then
 					next_state <= write_queue_state;
 				elsif(counter > MAX_FRAME_SIZE OR is_empty_temp = '1') then
+					counter <= 0;
 					next_state <= wait_state;
 				else
 					next_state <= peek_queue_state;
