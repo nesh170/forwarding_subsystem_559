@@ -95,7 +95,9 @@ BEGIN
 		if(previous_port /= current_port) then 
 			previous_port <= current_port;
 			port_change <= '1';
-		else port_change <= '0';
+		else 
+			port_change <= '0';
+			previous_port <= current_port;
 		end if;
 	END PROCESS;
 	
