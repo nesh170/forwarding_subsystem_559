@@ -30,6 +30,9 @@ ARCHITECTURE cbl OF control_block_logic IS
 	SIGNAL current_port: integer range 0 to 4;
 	SIGNAL port_change: STD_LOGIC := '1';
 	SIGNAL counter: integer range 0 to 10239 := 0;
+	SIGNAL register_output: STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL register_input : STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SIGNAL write_to_register: STD_LOGIC;
 	SIGNAL is_empty_temp: STD_LOGIC;
 	SIGNAL control_block: STD_LOGIC_VECTOR(23 DOWNTO 0) ;
 	SIGNAL current_read_enable: STD_LOGIC; --create drivers for this
@@ -37,6 +40,15 @@ ARCHITECTURE cbl OF control_block_logic IS
 	
 BEGIN
 	data_out <= control_block;
+	counter <= to_integer(unsigned(register_output(10 downto 0)));
+
+	reg : register_32 PORT MAP (
+		clock	      => clock,
+		reset	 	  => reset,
+		write_enable  => write_to_register,
+		data_in       => register_input,
+		data_out	  => register_output
+	);
 
 	PROCESS(clock,reset)
 	BEGIN
@@ -47,32 +59,53 @@ BEGIN
 		end if;
 	END PROCESS;
 	
-	PROCESS(state_reg, port_change, is_empty_temp, counter, control_block)
+	PROCESS(state_reg, port_change, is_empty_temp, counter, control_block, register_output)
+	variable added_value : integer := 0;
 	BEGIN
 		case state_reg is
 			when wait_state => 
+				write_to_register <= '0'; 
+				added_value := 0;
+				register_input <= register_output;
 				if (port_change = '0') then next_state <= wait_state;
 				else next_state <= check_empty_state;
 				end if;
 			when check_empty_state =>
+				write_to_register <= '0'; 
+				added_value := 0;
+				register_input <= register_output;
 				if (is_empty_temp = '1') then next_state <= empty_state;
 				else next_state <= peek_queue_state;
 				end if;
 			when empty_state => 
+				write_to_register <= '0'; 
+				added_value := 0;
+				register_input <= register_output;
 				next_state <= wait_state;
 			when peek_queue_state =>
-				counter <= counter + to_integer(unsigned(control_block(10 downto 0)));
-				if(counter <= MAX_FRAME_SIZE AND is_empty_temp = '0') then
+				added_value := counter + to_integer(unsigned(control_block(10 downto 0)));
+				if(added_value <= MAX_FRAME_SIZE AND is_empty_temp = '0') then
+					write_to_register <= '1';
+					register_input <= std_logic_vector(to_unsigned(added_value, register_input'length));
 					next_state <= write_queue_state;
-				elsif(counter > MAX_FRAME_SIZE OR is_empty_temp = '1') then
-					counter <= 0;
+				elsif(added_value > MAX_FRAME_SIZE OR is_empty_temp = '1') then
+					write_to_register <= '1';
+					register_input <= std_logic_vector(to_unsigned(0, register_input'length));
 					next_state <= wait_state;
 				else
+					write_to_register <= '0'; 
+					register_input <= register_output;
 					next_state <= peek_queue_state;
 				end if;	
-			when write_queue_state => 
+			when write_queue_state =>
+				added_value := 0;
+				write_to_register <= '0'; 
+				register_input <= register_output;
 				next_state <= pop_queue_state;
 			when pop_queue_state => 
+				added_value := 0;
+				write_to_register <= '0'; 
+				register_input <= register_output;
 				next_state <= peek_queue_state;
 			END case;
 	END PROCESS;
