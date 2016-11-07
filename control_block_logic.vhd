@@ -18,6 +18,7 @@ ENTITY control_block_logic IS
 				read_enable : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 				write_enable : OUT STD_LOGIC;
 				is_empty_stv : OUT STD_LOGIC;
+				port_change_output: OUT STD_LOGIC;
 				data_out : OUT STD_LOGIC_VECTOR(23 DOWNTO 0));
 END control_block_logic;
 
@@ -25,10 +26,7 @@ ARCHITECTURE cbl OF control_block_logic IS
 	TYPE state_type is 
 		(wait_state,check_empty_state,empty_state,peek_queue_state,write_queue_state,pop_queue_state);
 	SIGNAL state_reg, next_state: state_type;
-	
-	SIGNAL previous_port: integer range 0 to 4 := 0;
-	SIGNAL current_port: integer range 0 to 4;
-	SIGNAL port_change: STD_LOGIC := '1';
+	SIGNAL port_change: STD_LOGIC;
 	SIGNAL counter: integer range 0 to 10239 := 0;
 	SIGNAL register_output: STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL register_input : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -41,13 +39,21 @@ ARCHITECTURE cbl OF control_block_logic IS
 BEGIN
 	data_out <= control_block;
 	counter <= to_integer(unsigned(register_output(10 downto 0)));
-
+	port_change_output <= port_change;
+	
 	reg : register_32 PORT MAP (
 		clock	      => clock,
 		reset	 	  => reset,
 		write_enable  => write_to_register,
 		data_in       => register_input,
 		data_out	  => register_output
+	);
+	
+	port_change_control: port_change_handler PORT MAP (
+		clock => clock,
+		reset => reset,
+		receive_port_read => receive_port_read,
+		port_change =>  port_change
 	);
 
 	PROCESS(clock,reset)
@@ -110,30 +116,6 @@ BEGIN
 			END case;
 	END PROCESS;
 
-	PROCESS(receive_port_read, previous_port, current_port)
-	BEGIN
-		case receive_port_read is
-			when "0001" => 
-			current_port <= 1;
-			when "0010" => 
-			current_port <= 2;
-			when "0100" => 
-			current_port <= 3;
-			when "1000" => 
-			current_port <= 4;
-			when others => 
-			current_port <= 1;
-		end case;
-		
-		if(previous_port /= current_port) then 
-			previous_port <= current_port;
-			port_change <= '1';
-		else 
-			port_change <= '0';
-			previous_port <= current_port;
-		end if;
-	END PROCESS;
-	
 	PROCESS(receive_port_read, current_read_enable, is_empty, data_in_1, data_in_2, data_in_3, data_in_4)
 	BEGIN
 		case receive_port_read is 
