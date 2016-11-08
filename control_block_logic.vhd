@@ -19,7 +19,8 @@ ENTITY control_block_logic IS
 				write_enable : OUT STD_LOGIC;
 				is_empty_stv : OUT STD_LOGIC;
 				port_change_output: OUT STD_LOGIC;
-				data_out : OUT STD_LOGIC_VECTOR(23 DOWNTO 0));
+				data_out : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
+				test_counter : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
 END control_block_logic;
 
 ARCHITECTURE cbl OF control_block_logic IS 
@@ -34,11 +35,12 @@ ARCHITECTURE cbl OF control_block_logic IS
 	SIGNAL is_empty_temp: STD_LOGIC;
 	SIGNAL control_block: STD_LOGIC_VECTOR(23 DOWNTO 0) ;
 	SIGNAL current_read_enable: STD_LOGIC; --create drivers for this
-	CONSTANT MAX_FRAME_SIZE : integer := 8192; 
+	CONSTANT MAX_FRAME_SIZE : integer := 2047; 
 	
 BEGIN
 	data_out <= control_block;
 	counter <= to_integer(unsigned(register_output(10 downto 0)));
+	test_counter <= register_input;
 	port_change_output <= port_change;
 	
 	reg : register_32 PORT MAP (
@@ -94,14 +96,10 @@ BEGIN
 					write_to_register <= '1';
 					register_input <= std_logic_vector(to_unsigned(added_value, register_input'length));
 					next_state <= write_queue_state;
-				elsif(added_value > MAX_FRAME_SIZE OR is_empty_temp = '1') then
+				else
 					write_to_register <= '1';
 					register_input <= std_logic_vector(to_unsigned(0, register_input'length));
 					next_state <= wait_state;
-				else
-					write_to_register <= '0'; 
-					register_input <= register_output;
-					next_state <= peek_queue_state;
 				end if;	
 			when write_queue_state =>
 				added_value := 0;
