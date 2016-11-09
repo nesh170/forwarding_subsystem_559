@@ -20,7 +20,7 @@ ENTITY control_block_logic IS
 				is_empty_stv : OUT STD_LOGIC;
 				port_change_output: OUT STD_LOGIC;
 				data_out : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
-				test_counter : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+				counter_output : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
 END control_block_logic;
 
 ARCHITECTURE cbl OF control_block_logic IS 
@@ -28,19 +28,19 @@ ARCHITECTURE cbl OF control_block_logic IS
 		(wait_state,check_empty_state,empty_state,peek_queue_state,write_queue_state,pop_queue_state);
 	SIGNAL state_reg, next_state: state_type;
 	SIGNAL port_change: STD_LOGIC;
-	SIGNAL counter: integer range 0 to 10239 := 0;
+	SIGNAL counter: integer range 0 to 4096 := 0;
 	SIGNAL register_output: STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL register_input : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL write_to_register: STD_LOGIC;
 	SIGNAL is_empty_temp: STD_LOGIC;
 	SIGNAL control_block: STD_LOGIC_VECTOR(23 DOWNTO 0) ;
-	SIGNAL current_read_enable: STD_LOGIC; --create drivers for this
+	SIGNAL current_read_enable: STD_LOGIC; 
 	CONSTANT MAX_FRAME_SIZE : integer := 2047; 
 	
 BEGIN
 	data_out <= control_block;
 	counter <= to_integer(unsigned(register_output(10 downto 0)));
-	test_counter <= register_input;
+	counter_output <= std_logic_vector(to_unsigned(counter, counter_output'length));
 	port_change_output <= port_change;
 	
 	reg : register_32 PORT MAP (
