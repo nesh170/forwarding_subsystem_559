@@ -28,18 +28,18 @@ ARCHITECTURE cbl OF control_block_logic IS
 		(wait_state,check_empty_state,empty_state,peek_queue_state,write_queue_state,pop_queue_state);
 	SIGNAL state_reg, next_state: state_type;
 	SIGNAL port_change: STD_LOGIC;
-	SIGNAL counter: integer range 0 to 4096 := 0;
+	SIGNAL counter: integer range 0 to 8192 := 0;
 	SIGNAL register_output: STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL register_input : STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SIGNAL write_to_register: STD_LOGIC;
 	SIGNAL is_empty_temp: STD_LOGIC;
 	SIGNAL control_block: STD_LOGIC_VECTOR(23 DOWNTO 0) ;
 	SIGNAL current_read_enable: STD_LOGIC; 
-	CONSTANT MAX_FRAME_SIZE : integer := 2047; 
+	CONSTANT MAX_FRAME_SIZE : integer := 4095; 
 	
 BEGIN
 	data_out <= control_block;
-	counter <= to_integer(unsigned(register_output(10 downto 0)));
+	counter <= to_integer(unsigned(register_output(11 downto 0)));
 	counter_output <= std_logic_vector(to_unsigned(counter, counter_output'length));
 	port_change_output <= port_change;
 	
@@ -91,7 +91,7 @@ BEGIN
 				register_input <= register_output;
 				next_state <= wait_state;
 			when peek_queue_state =>
-				added_value := counter + to_integer(unsigned(control_block(10 downto 0)));
+				added_value := counter + to_integer(unsigned(control_block(11 downto 0)));
 				if(added_value <= MAX_FRAME_SIZE AND is_empty_temp = '0') then
 					write_to_register <= '1';
 					register_input <= std_logic_vector(to_unsigned(added_value, register_input'length));
