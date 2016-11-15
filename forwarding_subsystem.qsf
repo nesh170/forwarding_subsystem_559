@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC7C7F23C8
-set_global_assignment -name TOP_LEVEL_ENTITY control_block_logic
+set_global_assignment -name TOP_LEVEL_ENTITY receive_handler
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.0.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:15:39  OCTOBER 09, 2016"
 set_global_assignment -name LAST_QUARTUS_VERSION 16.0.0
@@ -52,9 +52,17 @@ set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VECTOR_WAVEFORM_FILE vlan.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE receive_handler_waveform.vwf
+set_global_assignment -name SOURCE_FILE recv_frame_queue.cmp
+set_global_assignment -name SOURCE_FILE recv_control_block_queue.cmp
+set_global_assignment -name QIP_FILE recv_frame_queue.qip
+set_global_assignment -name QIP_FILE recv_control_block_queue.qip
+set_global_assignment -name VHDL_FILE vlan.vhd
+set_global_assignment -name VHDL_FILE recv_frame_queue.vhd
+set_global_assignment -name VHDL_FILE recv_control_block_queue.vhd
+set_global_assignment -name VHDL_FILE receive_handler.vhd
+set_global_assignment -name VHDL_FILE frame_handler.vhd
 set_global_assignment -name VECTOR_WAVEFORM_FILE control_block_test_cycle.vwf
 set_global_assignment -name VHDL_FILE register_32.vhd
 set_global_assignment -name VHDL_FILE starvation_management_system.vhd
@@ -63,4 +71,7 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE register_32_waveform.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE control_block_test_empty.vwf
 set_global_assignment -name VHDL_FILE port_change_handler.vhd
 set_global_assignment -name VECTOR_WAVEFORM_FILE port_change_block.vwf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
