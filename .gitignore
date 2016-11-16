@@ -67,3 +67,6 @@
 
 # ignore pin dumps
 *dump.txt
+
+#greybox_temp
+greybox_tmp/

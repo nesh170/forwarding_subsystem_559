@@ -25,7 +25,7 @@ ARCHITECTURE recv_handler_arch OF receive_handler IS
 
 BEGIN
 
-control_block_queue : recv_control_block_queue PORT MAP (
+recv_control_block_queue : control_block_queue PORT MAP (
 		aclr		=> reset,	
 		clock		=> clock,
 		data		=> control_block_in,
@@ -34,7 +34,7 @@ control_block_queue : recv_control_block_queue PORT MAP (
 		empty		=> control_block_empty,
 		q			=> control_block_out);
 
-frame_queue : recv_frame_queue PORT MAP (
+recv_frame_queue : frame_queue PORT MAP (
 		aclr		=> reset,	
 		clock		=> clock,
 		data		=> frame_in,
