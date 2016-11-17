@@ -216,7 +216,7 @@ BEGIN
 		monitor_tagged <= vlan_tagged_bit;
 		monitor_high_priority <= vlan_priority_bit;
 		
-	trans_mem_handler: trans_mem PORT MAP(
+	trans_mem_handler: trans_mem PORT MAP( --TAKE IN VLAN DISCARD BIT, so we can clear the queue
 		clk => clock,
 		reset => reset,
 		priority_in => vlan_priority_bit,
