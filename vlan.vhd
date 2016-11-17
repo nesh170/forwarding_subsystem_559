@@ -11,24 +11,29 @@ port(
 		ctrl_block : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
 		buffer_empty : IN STD_LOGIC;
 		clk : IN STD_LOGIC;
+		reset : IN STD_LOGIC;
 		priority_bit : OUT STD_LOGIC;
+		tagged_bit : OUT STD_LOGIC;
+		discard_bit : OUT STD_LOGIC;
 		src_addr : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
 		dest_addr : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
 		extract_read_valid : OUT STD_LOGIC;
 		priority_read_valid : OUT STD_LOGIC;
-		discard_bit : OUT STD_LOGIC;
-		counter : OUT integer range 0 to 19
+		--frame_id_read_valid : OUT STD_LOGIC;
+		counter_one : OUT integer range 0 to 11;
+		counter_two : OUT integer range 0 to 15;
+		frame_id : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
 );
 end entity vlan;
 
 
 architecture check of vlan IS
 
-signal addr_count : integer range 0 to 19;
-signal priority_count : integer range 0 to 21;
-signal end_spot : integer range 0 to 167;
+signal addr_count : integer range 0 to 11;
+signal priority_count : integer range 0 to 15;
+signal end_spot : integer range 0 to 119;
 signal store_length :STD_LOGIC_VECTOR(11 DOWNTO 0);
-signal queue : STD_LOGIC_VECTOR(175 DOWNTO 0);
+signal queue : STD_LOGIC_VECTOR(127 DOWNTO 0);
 signal vlan_value : STD_LOGIC_VECTOR(7 DOWNTO 0);
 signal priority_bits :STD_LOGIC_VECTOR(2 DOWNTO 0);
 signal buff_prior : STD_LOGIC;
@@ -36,77 +41,91 @@ signal buff_extract : STD_LOGIC;
 
 
 begin
-	process(frame_seg, ctrl_block, buffer_empty, clk)
+	process(frame_seg, ctrl_block, buffer_empty, clk, reset)
 	begin
 			if(clk'event and clk = '1') then
-				if(buffer_empty = '0') then
-					if(priority_count = 0) then
+			
+				if(buffer_empty = '0') then -- segments are in buffer
+				
+					if(priority_count = 0) then -- get length and frame id, set everything else to zero on first cycle
+						tagged_bit <= '0';
 						priority_bit <= '0';
-						end_spot <= 167;
+						discard_bit <= '0';
+						end_spot <= 111;
 						priority_read_valid <= '0';
 						extract_read_valid <= '0';
-						store_length <= ctrl_block(23 DOWNTO 12);
+						--frame_id_read_valid <= '0';
+						store_length <= ctrl_block(11 DOWNTO 0);
+						frame_id <= ctrl_block(23 DOWNTO 12);
 						dest_addr <= (0 => '0', others => '0');
 						src_addr <= (0 => '0', others => '0');
 						buff_extract <= '0';
 						buff_prior <= '0';
-
 					end if;
 
-					if(priority_count < 21) then
-						queue(175 DOWNTO 168) <= frame_seg;
-						end_spot <= end_spot - 8;
-						if(addr_count < 19) then 
+					if(priority_count < 15) then  -- this will happen on the first cycle as well, increase counter
+						queue(127 DOWNTO 120) <= frame_seg;  -- store frame
+						end_spot <= end_spot - 8;  -- move spot
+						
+						if(addr_count < 11) then -- increase counter
 							addr_count <= addr_count + 1;
-						else
+						else							 -- do not increase counter, set buffer addr look now bit
 							buff_extract <= '1';
 						end if;
-						priority_count <= priority_count + 1;	
-					else
-						priority_bits <= frame_seg(7 DOWNTO 5);
-						buff_prior <= '1';
+						
+						if(priority_count = 13) then	-- store priority bits, set buffer priority look now bit
+							priority_bits <= frame_seg(7 DOWNTO 5);
+							buff_prior <= '1';
+						end if;
+						priority_count <= priority_count + 1;
 					end if;
+					
 				end if; 
-				counter <= addr_count;
-				if(buff_extract = '1') then
+				
+				counter_one <= addr_count;	-- testing purposes
+				counter_two <= priority_count;  -- testing purposes
+				
+				if(buff_extract = '1') then -- set actual look now addr bit
 					extract_read_valid <= '1';
 				end if;
 				
-				if(buff_prior = '1') then
+				if(buff_prior = '1') then  -- set actual look now priority bit
 					priority_read_valid <= '1';
 				end if;
 				
-				dest_addr <= queue(111 DOWNTO 64);
-				src_addr <= queue(63 DOWNTO 16);
+				dest_addr <= queue(127 DOWNTO 80);
+				src_addr <= queue(79 DOWNTO 32);
 
 --				
-				if(queue(15 DOWNTO 0) = x"8100" ) then					
-					if(priority_bits = "111") then
-						if(store_length > "10000000") then
-							priority_bit <= '0';
+				if(queue(31 DOWNTO 15) = x"8100" ) then	-- set tagged bit
+					tagged_bit <= '1';
+					if(priority_bits = "111") then  -- set priority bit
+						priority_bit <= '1';
+						if(store_length > "10000000") then  -- set discard bit
 							discard_bit <= '1';
-						else
-							priority_bit <= '1';
 						end if;
-					else
+					else  -- set priority bit low
 						priority_bit <= '0';
 					end if;
-				else
+				else  -- set tagged and priority bit low
+					tagged_bit <= '0';
 					priority_bit <= '0';
 				end if;
 --				
-				if(buffer_empty = '1') then
+				if(buffer_empty = '1' or reset = '1') then  -- buffer is empty, reset everything
 					addr_count <= 0;
 					priority_count <= 0;
 					priority_bit <= '0';
-					end_spot <= 167;
+					end_spot <= 119;
 					priority_read_valid <= '0';
 					extract_read_valid <= '0';
-					store_length <= ctrl_block(23 DOWNTO 12);
+					store_length <= (0 => '0', others => '0');
 					dest_addr <= (0 => '0', others => '0');
 					src_addr <= (0 => '0', others => '0');
+					queue <= (0 => '0', others => '0');
 					buff_extract <= '0';
 					buff_prior <= '0';
+					tagged_bit <= '0';
 				end if;
 			end if;
 	end process;
