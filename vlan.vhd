@@ -13,6 +13,7 @@ port(
 		clk : IN STD_LOGIC;
 		reset : IN STD_LOGIC;
 		table_rdy : IN STD_LOGIC;
+		read_enable: OUT STD_LOGIC;
 		priority_bit : OUT STD_LOGIC;
 		tagged_bit : OUT STD_LOGIC;
 		discard_bit : OUT STD_LOGIC;
@@ -63,6 +64,7 @@ begin
 						src_addr <= (0 => '0', others => '0');
 						buff_extract <= '0';
 						buff_prior <= '0';
+						read_enable <= '1';
 					end if;
 					
 					if(priority_count = 0) then
@@ -164,6 +166,7 @@ begin
 					buff_extract <= '0';
 					buff_prior <= '0';
 					tagged_bit <= '0';
+					read_enable <= '0';
 				end if;
 			end if;
 	end process;

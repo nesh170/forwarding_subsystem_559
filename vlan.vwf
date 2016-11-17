@@ -1583,6 +1583,16 @@ SIGNAL("frame_read_valid")
 	PARENT = "";
 }
 
+SIGNAL("read_enable")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
 TRANSITION_LIST("buffer_empty")
 {
 	NODE
@@ -2994,6 +3004,15 @@ TRANSITION_LIST("table_rdy")
 }
 
 TRANSITION_LIST("frame_read_valid")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
+	}
+}
+
+TRANSITION_LIST("read_enable")
 {
 	NODE
 	{
@@ -4539,6 +4558,15 @@ DISPLAY_LINE
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 154;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "read_enable";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 155;
 	TREE_LEVEL = 0;
 }
 
