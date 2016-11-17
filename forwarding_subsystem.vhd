@@ -59,7 +59,10 @@ ARCHITECTURE fs_arch OF forwarding_subsystem IS
 	SIGNAL receive_port_read: STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL write_control_block_buffer,is_empty_stv,read_control_block_buffer: STD_LOGIC;
 	SIGNAL control_block_buffer_in,control_block_buffer_out: STD_LOGIC_VECTOR(23 DOWNTO 0);
-	SIGNAL is_empty_control_block_buffer,is_empty_frame_buffer: STD_LOGIC;
+	SIGNAL is_empty_control_block_buffer,is_empty_frame_buffer,frame_buffer_read: STD_LOGIC;
+	SIGNAL frame_finished_sig,write_enable_frame_buffer_queue: STD_LOGIC;
+	SIGNAL frame_queue_in,frame_queue_out: STD_LOGIC_VECTOR(7 DOWNTO 0);
+
 BEGIN
 	recv_handler_1: receive_handler PORT MAP(
 		clock => clock,
@@ -155,11 +158,33 @@ BEGIN
 		q			=> control_block_buffer_out
 	);
 	
-	
-	
-	
+	frame_handle: frame_handler PORT MAP (
+		clock_sig => clock,
+		reset_sig => reset,
+		control_block => control_block_buffer_out,
+		receive_port_to_read => receive_port_read,
+		frame_peek_value_1 => recv_frame_out_sig_1,
+		frame_peek_value_2 => recv_frame_out_sig_2,
+		frame_peek_value_3 => recv_frame_out_sig_3,
+		frame_peek_value_4 => recv_frame_out_sig_4,
+		frame_queue_empty => recv_frame_empty,
+		control_block_buffer_queue_empty => is_empty_control_block_buffer,
+		control_read_enable_frame_queue => recv_frame_read,
+		frame_finished => frame_finished_sig,
+		frame_data_block => frame_queue_in,
+		write_enable_frame_buffer_queue => write_enable_frame_buffer_queue
+	);
 
-
+	frame_buffer : frame_queue PORT MAP (
+		aclr		=> reset,	
+		clock		=> clock,
+		data		=> frame_queue_in,
+		rdreq		=> frame_buffer_read,
+		wrreq		=> write_enable_frame_buffer_queue,
+		empty		=> is_empty_frame_buffer,
+		q			=> frame_queue_out
+	);	
+	
 
 
 END fs_arch;
