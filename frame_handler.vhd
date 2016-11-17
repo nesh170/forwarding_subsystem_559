@@ -24,14 +24,18 @@ entity frame_handler is
 		frame_peek_value_2:						in std_logic_vector (7 DOWNTO 0);
 		frame_peek_value_3:						in std_logic_vector (7 DOWNTO 0);
 		frame_peek_value_4:						in std_logic_vector (7 DOWNTO 0);
-		frame_queue_empty : 						in	std_logic;
+		frame_queue_empty : 						in	std_logic_vector (3 DOWNTO 0);
 		control_block_buffer_queue_empty : 	in std_logic;
 
 		control_read_enable_frame_queue:		out std_logic_vector (3 DOWNTO 0);
 		frame_finished:							out std_logic;
 		frame_data_block:							out std_logic_vector (7 DOWNTO 0);
 		write_enable_frame_buffer_queue:		out std_logic;
-		counter_output:							out std_logic_vector (31 DOWNTO 0) --for debugging purposes
+		counter_output:							out std_logic_vector (31 DOWNTO 0); --for debugging purposes
+		in_peek_state:								out std_logic;
+		in_wait_state:								out std_logic;
+		write_reg: 									out std_logic;
+		is_queue_empty_sid:							out std_logic
 	);
 end frame_handler;
 
@@ -44,13 +48,17 @@ architecture frame of frame_handler is
 	signal register_output : std_logic_vector (31 DOWNTO 0);
 	signal register_input : std_logic_vector (31 DOWNTO 0);
 	signal register_write_enable : std_logic;
+	signal is_queue_empty: std_logic;
+	--signal is_queue_empty : std_logic;
 	constant FRAME_CHUNK_SIZE : integer := 8;	
 	
 	
 begin
 	--always set counter to current value of register output
-	counter <= to_integer(unsigned(register_output(10 DOWNTO 0)));
-	counter_output <= std_logic_vector(to_unsigned(counter, counter_output'length));
+	counter <= to_integer(unsigned(register_output(11 DOWNTO 0)));
+	counter_output <= std_logic_vector(to_unsigned(counter,counter_output'length));
+	write_reg <= register_write_enable;
+	is_queue_empty_sid <= is_queue_empty;
 	--port map register
 	reg : register_32 PORT MAP (
 		clock => clock_sig,
@@ -70,7 +78,7 @@ begin
 	end if;
 	end process;
 	--next state logic
-	process(state_current, frame_queue_empty, control_block, counter, register_output, control_block_buffer_queue_empty)
+	process(state_current, control_block, counter, register_output, control_block_buffer_queue_empty)
 	--initialize variable added_value to 0 at beginning
 	variable added_value : integer := 0;
 	begin
@@ -90,10 +98,10 @@ begin
 			if (counter >= to_integer(unsigned(control_block(11 DOWNTO 0)))) then
 				state_next <= frame_finished_state;
 			--if counter is less than frame size, then want to write data to queue, have to check that queue is not empty otherwise could write potentiall all 0's if queue is emty
-			elsif (counter < to_integer(unsigned(control_block(11 DOWNTO 0))) and frame_queue_empty = '0') then
+			elsif (counter < to_integer(unsigned(control_block(11 DOWNTO 0))) and is_queue_empty = '0') then
 				state_next <= write_state;
 			--if frame queue is empty, stay at peek state to do the checks again to see if frame is finished and so on
-			elsif (frame_queue_empty = '1') then
+			elsif (is_queue_empty = '1') then
 				state_next <= peek_state;
 			else state_next <= peek_state;
 			end if;
@@ -121,19 +129,40 @@ begin
 		end case;
 	end process;
 	
-	process(receive_port_to_read, frame_peek_value_1, frame_peek_value_2, frame_peek_value_3, frame_peek_value_4)
+	process(receive_port_to_read, frame_queue_empty, frame_peek_value_1, frame_peek_value_2, frame_peek_value_3, frame_peek_value_4)
 	begin
 		case receive_port_to_read is
 			when "0001" =>
 				frame_data_block <= frame_peek_value_1;
+				if (frame_queue_empty = "0001") then
+					is_queue_empty <= '1';
+				else
+					is_queue_empty <= '0';
+				end if;
 			when "0010" =>
 				frame_data_block <= frame_peek_value_2;
+				if (frame_queue_empty = "0010") then
+					is_queue_empty <= '1';
+				else
+					is_queue_empty <= '0';
+				end if;
 			when "0100" =>
 				frame_data_block <= frame_peek_value_3;
+				if (frame_queue_empty = "0100") then
+					is_queue_empty <= '1';
+				else
+					is_queue_empty <= '0';
+				end if;
 			when "1000" =>
 				frame_data_block <= frame_peek_value_4;
+				if (frame_queue_empty = "1000") then
+					is_queue_empty <= '1';
+				else
+					is_queue_empty <= '0';
+				end if;
 			when others =>
 				frame_data_block <= "00000000";
+				is_queue_empty <= '0';
 			end case;
 	end process;
 	process(state_current, receive_port_to_read)
@@ -143,22 +172,32 @@ begin
 				control_read_enable_frame_queue <= "0000";
 				frame_finished <= '0';
 				write_enable_frame_buffer_queue <= '0';
+				in_peek_state <= '0';
+				in_wait_state <= '1';
 			when peek_state =>
 				control_read_enable_frame_queue <= "0000";
 				frame_finished <= '0';
 				write_enable_frame_buffer_queue <= '0';
+				in_peek_state <= '1';
+				in_wait_state <= '0';
 			when write_state =>
 				control_read_enable_frame_queue <= "0000";
 				frame_finished <= '0';
 				write_enable_frame_buffer_queue <= '1';
+				in_peek_state <= '0';
+				in_wait_state <= '0';
 			when delete_state =>
 				control_read_enable_frame_queue <= receive_port_to_read;
 				frame_finished <= '0';
-				write_enable_frame_buffer_queue <= '0';				
+				write_enable_frame_buffer_queue <= '0';
+				in_peek_state <= '0';
+				in_wait_state <= '0';
 			when frame_finished_state =>
 				control_read_enable_frame_queue <= "0000";
 				frame_finished <= '1';
 				write_enable_frame_buffer_queue <= '0';
+				in_peek_state <= '0';
+				in_wait_state <= '0';
 			end case;
 	end process;
 end frame;
