@@ -18,7 +18,7 @@ use work.all;
 entity frame_handler is 
 	port (
 		clock_sig, reset_sig: 					in std_logic;
-		control_block:								in std_logic_vector (24 DOWNTO 0);
+		control_block:								in std_logic_vector (23 DOWNTO 0);
 		receive_port_to_read:					in std_logic_vector (3 DOWNTO 0);
 		frame_peek_value_1:						in std_logic_vector (7 DOWNTO 0);
 		frame_peek_value_2:						in std_logic_vector (7 DOWNTO 0);
@@ -69,7 +69,7 @@ begin
 	);
 	
 	
-	process(clock_sig, reset_sig)
+	process(clock_sig, reset_sig,is_queue_empty)
 	begin
 	if (reset_sig = '1') then state_current <= wait_state;
 	elsif(clock_sig'event and clock_sig='1') then
@@ -78,7 +78,7 @@ begin
 	end if;
 	end process;
 	--next state logic
-	process(state_current, control_block, counter, register_output, control_block_buffer_queue_empty)
+	process(state_current, control_block, counter, register_output, control_block_buffer_queue_empty,is_queue_empty)
 	--initialize variable added_value to 0 at beginning
 	variable added_value : integer := 0;
 	begin

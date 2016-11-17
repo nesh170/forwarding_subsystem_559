@@ -28,6 +28,7 @@ PORT(
 		table_input_ready: IN STD_LOGIC;
 		table_output_ready: IN STD_LOGIC;
 		table_source_address: OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
+		table_destination_address: OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
 		table_source_port: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		table_trigger: OUT STD_LOGIC;
 		
@@ -38,17 +39,11 @@ PORT(
 		monitor_high_priority: OUT STD_LOGIC;
 		
 		--Transmit
-		xmit_frame_out_1: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		xmit_frame_out_2: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		xmit_frame_out_3: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		xmit_frame_out_4: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		xmit_frame_out: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 		xmit_ctrl_write_frame:OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		xmit_control_block_out_1: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
-		xmit_control_block_out_2: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
-		xmit_control_block_out_3: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
-		xmit_control_block_out_4: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
+		xmit_control_block_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
 		xmit_ctrl_write_control_block: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		xmit_high_priority: OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+		xmit_high_priority:OUT STD_LOGIC
 	);
 END forwarding_subsystem;	
 	
@@ -59,9 +54,10 @@ ARCHITECTURE fs_arch OF forwarding_subsystem IS
 	SIGNAL receive_port_read: STD_LOGIC_VECTOR(3 DOWNTO 0);
 	SIGNAL write_control_block_buffer,is_empty_stv,read_control_block_buffer: STD_LOGIC;
 	SIGNAL control_block_buffer_in,control_block_buffer_out: STD_LOGIC_VECTOR(23 DOWNTO 0);
-	SIGNAL is_empty_control_block_buffer,is_empty_frame_buffer,frame_buffer_read: STD_LOGIC;
+	SIGNAL is_empty_control_block_buffer,is_empty_frame_buffer,frame_buffer_read, is_empty_frame_buffer_vlan, frame_buffer_read_vlan: STD_LOGIC;
 	SIGNAL frame_finished_sig,write_enable_frame_buffer_queue: STD_LOGIC;
-	SIGNAL frame_queue_in,frame_queue_out: STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL frame_queue_in,frame_queue_out, frame_queue_out_vlan: STD_LOGIC_VECTOR(7 DOWNTO 0);
+	SIGNAL vlan_priority_bit, vlan_tagged_bit, vlan_discard_bit, vlan_extract_read_valid, vlan_priority_read_valid: STD_LOGIC;
 
 BEGIN
 	recv_handler_1: receive_handler PORT MAP(
@@ -185,6 +181,58 @@ BEGIN
 		q			=> frame_queue_out
 	);	
 	
-
+	frame_buffer_vlan : frame_queue PORT MAP (
+		aclr		=> reset,	
+		clock		=> clock,
+		data		=> frame_queue_in,
+		rdreq		=> frame_buffer_read_vlan,
+		wrreq		=> write_enable_frame_buffer_queue,
+		empty		=> is_empty_frame_buffer_vlan,
+		q			=> frame_queue_out_vlan
+	);	
+	
+	vlan_handler : vlan PORT MAP ( --frame_finished_sig, vlan_discard_bit and table_trigger
+		frame_seg => frame_queue_out_vlan,
+		ctrl_block => control_block_buffer_out,
+		buffer_empty => is_empty_frame_buffer_vlan,
+		clk => clock,
+		reset => reset,
+		table_rdy => table_input_ready,
+		priority_bit => vlan_priority_bit,
+		tagged_bit => vlan_tagged_bit,
+		discard_bit => vlan_discard_bit,
+		src_addr => table_source_address,
+		dest_addr => table_destination_address,
+		extract_read_valid => vlan_extract_read_valid,
+		priority_read_valid => vlan_priority_read_valid,
+		read_enable => frame_buffer_read_vlan,
+		frame_id => monitor_frame_id
+	);
+	
+	--table source port
+	table_source_port <= receive_port_read;
+	--monitor outputs
+		monitor_look_now <= vlan_extract_read_valid; -- TODO CHECK WITH STEVEN :/
+		monitor_tagged <= vlan_tagged_bit;
+		monitor_high_priority <= vlan_priority_bit;
+		
+	trans_mem_handler: trans_mem PORT MAP(
+		clk => clock,
+		reset => reset,
+		priority_in => vlan_priority_bit,
+		port_ready =>  table_output_ready, --TODO CHECK WITH STEVEN AND ALEX :/
+		priority_ready => vlan_priority_read_valid,
+		frame_q_is_empty => is_empty_frame_buffer,
+		frame_data_in => frame_queue_out,
+		ctrl_block_in => control_block_buffer_out,
+		port_in => table_destination_port,
+		priority_out => xmit_high_priority,
+		read_frame_q => frame_buffer_read,
+		read_ctrl_q => read_control_block_buffer,
+		ctrl_block_we => xmit_ctrl_write_control_block,
+		frame_we => xmit_ctrl_write_frame,
+		frame_data_out => xmit_frame_out,
+		ctrl_block_out => xmit_control_block_out
+	);
 
 END fs_arch;
