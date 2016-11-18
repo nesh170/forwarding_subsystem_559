@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity trans_mem is
 		
 		port (
-				clk, reset, priority_in, port_ready, priority_ready: in std_logic;
+				clk, reset, priority_in, port_ready, priority_ready, discard: in std_logic;
 				frame_q_is_empty: in std_logic;
 				frame_data_in: in std_logic_vector (7 downto 0);
 				ctrl_block_in: in std_logic_vector (23 downto 0);
@@ -34,7 +34,7 @@ entity trans_mem is
 			component transmit_handler is
 			
 				port (
-					clock, reset, priority_in, frame_q_is_empty, start: in std_logic;
+					clock, reset, priority_in, frame_q_is_empty, start, discard: in std_logic;
 					dest_port: in std_logic_vector (3 downto 0);
 					frame_data_in: in std_logic_vector (7 downto 0);
 					ctrl_block_in: in std_logic_vector (23 downto 0);
@@ -69,6 +69,7 @@ entity trans_mem is
 					priority_in => priority_between,
 					frame_q_is_empty => frame_q_is_empty,
 					start => start_between,
+					discard => discard,
 					dest_port => port_between,
 					frame_data_in => frame_data_in,
 					ctrl_block_in => ctrl_block_in,
