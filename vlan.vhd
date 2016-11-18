@@ -22,6 +22,7 @@ port(
 		dest_addr : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
 		extract_read_valid : OUT STD_LOGIC;
 		priority_read_valid : OUT STD_LOGIC;
+		tagged_read_valid : OUT STD_LOGIC;
 		frame_read_valid : OUT STD_LOGIC;
 		--counter_one : OUT integer range 0 to 11;
 		--counter_two : OUT integer range 0 to 15;
@@ -35,19 +36,25 @@ architecture check of vlan IS
 
 signal addr_count : integer range 0 to 11;
 signal priority_count : integer range 0 to 15;
---signal end_spot : integer range 0 to 119;
 signal store_length :STD_LOGIC_VECTOR(11 DOWNTO 0);
 signal queue : STD_LOGIC_VECTOR(127 DOWNTO 0);
 signal vlan_value : STD_LOGIC_VECTOR(7 DOWNTO 0);
 signal priority_bits :STD_LOGIC_VECTOR(2 DOWNTO 0);
 signal buff_prior : STD_LOGIC;
 signal buff_extract : STD_LOGIC;
+signal buff_tagged : STD_LOGIC;
 signal can_cycle : STD_LOGIC;
 
 begin
 	process(frame_seg, ctrl_block, buffer_empty, clk, reset)
 	begin
 			if(clk'event and clk = '1') then
+				if(table_rdy = '0' and buff_prior = '1') then
+					read_enable <= '0';
+				else
+					read_enable <= '1';
+				end if;
+
 				if(start_bit = '1') then
 					can_cycle <= '1';	-- to be used to keep cycling after start_bit is low
 				end if;
@@ -58,17 +65,18 @@ begin
 						tagged_bit <= '0';
 						priority_bit <= '0';
 						discard_bit <= '0';
-						--end_spot <= 111;
 						priority_read_valid <= '0';
 						extract_read_valid <= '0';
 						frame_read_valid <= '1';
+						tagged_read_valid <= '0';
 						store_length <= ctrl_block(11 DOWNTO 0);
 						frame_id <= ctrl_block(23 DOWNTO 12);
 						dest_addr <= (0 => '0', others => '0');
 						src_addr <= (0 => '0', others => '0');
+						frame_id <= (0 => '0', others => '0');
 						buff_extract <= '0';
 						buff_prior <= '0';
-						read_enable <= '1';
+						buff_tagged <= '0';
 					end if;
 					
 					if(priority_count = 0) then
@@ -106,8 +114,6 @@ begin
 					end if;
 					
 					if(priority_count < 15) then  -- this will happen on the first cycle as well, increase counter
-						--queue(127 DOWNTO 120) <= frame_seg;  -- store frame
-						--end_spot <= end_spot - 8;  -- move spot
 						
 						if(addr_count < 11) then -- increase counter
 							addr_count <= addr_count + 1;
@@ -115,11 +121,16 @@ begin
 							buff_extract <= '1';
 						end if;
 						
+						if(priority_count = 12) then
+							buff_tagged <= '1';
+						end if;
+						
 						if(priority_count = 14) then	-- store priority bits, set buffer priority look now bit
-					--		priority_bits <= frame_seg(7 DOWNTO 5);
 							buff_prior <= '1';
 						end if;
+						
 						priority_count <= priority_count + 1;
+						
 					end if;
 					
 				end if; 
@@ -131,14 +142,19 @@ begin
 					extract_read_valid <= '1';
 				end if;
 				
+				if(buff_tagged = '1') then
+					tagged_read_valid <= '1';
+				end if;
+				
 				if(buff_prior = '1') then  -- set actual look now priority bit
 					priority_read_valid <= '1';
 				end if;
 				
+				
 				dest_addr <= queue(127 DOWNTO 80);
 				src_addr <= queue(79 DOWNTO 32);
 				--test_out <= queue(15 DOWNTO 0);
---				
+
 				if(queue(31 DOWNTO 16) = "1000000100000000" ) then	-- set tagged bit
 					tagged_bit <= '1';
 					if(queue(15 DOWNTO 13) = "111") then  -- set priority bit
@@ -160,17 +176,18 @@ begin
 					addr_count <= 0;
 					priority_count <= 0;
 					priority_bit <= '0';
-					--end_spot <= 119;
 					priority_read_valid <= '0';
 					extract_read_valid <= '0';
+					buff_tagged <= '0';
+					tagged_read_valid <= '0';
 					store_length <= (0 => '0', others => '0');
 					dest_addr <= (0 => '0', others => '0');
 					src_addr <= (0 => '0', others => '0');
 					queue <= (0 => '0', others => '0');
+					frame_id <= (0 => '0', others => '0');
 					buff_extract <= '0';
 					buff_prior <= '0';
 					tagged_bit <= '0';
-					read_enable <= '0';
 					can_cycle <= '0';
 				end if;
 			end if;

@@ -1603,6 +1603,16 @@ SIGNAL("start_bit")
 	PARENT = "";
 }
 
+SIGNAL("tagged_read_valid")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
 TRANSITION_LIST("buffer_empty")
 {
 	NODE
@@ -1753,8 +1763,7 @@ TRANSITION_LIST("ctrl_block[11]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1763,8 +1772,7 @@ TRANSITION_LIST("ctrl_block[10]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1773,8 +1781,7 @@ TRANSITION_LIST("ctrl_block[9]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1783,8 +1790,7 @@ TRANSITION_LIST("ctrl_block[8]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1793,8 +1799,7 @@ TRANSITION_LIST("ctrl_block[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1803,8 +1808,7 @@ TRANSITION_LIST("ctrl_block[6]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1813,8 +1817,7 @@ TRANSITION_LIST("ctrl_block[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1823,8 +1826,7 @@ TRANSITION_LIST("ctrl_block[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1833,8 +1835,7 @@ TRANSITION_LIST("ctrl_block[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1843,8 +1844,7 @@ TRANSITION_LIST("ctrl_block[2]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1853,8 +1853,7 @@ TRANSITION_LIST("ctrl_block[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -1863,8 +1862,7 @@ TRANSITION_LIST("ctrl_block[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 980.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -3038,6 +3036,15 @@ TRANSITION_LIST("start_bit")
 		REPEAT = 1;
 		LEVEL 1 FOR 10.0;
 		LEVEL 0 FOR 990.0;
+	}
+}
+
+TRANSITION_LIST("tagged_read_valid")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 1000.0;
 	}
 }
 
@@ -4596,6 +4603,15 @@ DISPLAY_LINE
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 156;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "tagged_read_valid";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 157;
 	TREE_LEVEL = 0;
 }
 
