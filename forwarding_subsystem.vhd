@@ -232,7 +232,7 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		monitor_tagged <= vlan_tagged_bit;
 		monitor_high_priority <= vlan_priority_bit;
 		
-	trans_mem_handler: trans_mem PORT MAP( --TAKE IN VLAN DISCARD BIT, so we can clear the queue
+	trans_mem_handler: trans_mem PORT MAP( 
 		clk => clock,
 		reset => reset,
 		priority_in => vlan_priority_bit,
@@ -248,7 +248,8 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		ctrl_block_we => xmit_ctrl_write_control_block,
 		frame_we => xmit_ctrl_write_frame,
 		frame_data_out => xmit_frame_out,
-		ctrl_block_out => xmit_control_block_out
+		ctrl_block_out => xmit_control_block_out,
+		discard => vlan_discard_bit
 	);
 
 END fs_arch;
