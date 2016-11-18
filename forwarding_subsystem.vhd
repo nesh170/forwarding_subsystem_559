@@ -221,7 +221,8 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		extract_read_valid => table_trigger,
 		priority_read_valid => vlan_priority_read_valid,
 		read_enable => frame_buffer_read_vlan,
-		frame_id => monitor_frame_id
+		frame_id => monitor_frame_id,
+		start_bit => frame_finished_sig
 	);
 	
 	--table source port
