@@ -13,6 +13,7 @@ port(
 		clk : IN STD_LOGIC;
 		reset : IN STD_LOGIC;
 		table_rdy : IN STD_LOGIC;
+		start_bit : IN STD_LOGIC;
 		read_enable: OUT STD_LOGIC;
 		priority_bit : OUT STD_LOGIC;
 		tagged_bit : OUT STD_LOGIC;
@@ -34,27 +35,30 @@ architecture check of vlan IS
 
 signal addr_count : integer range 0 to 11;
 signal priority_count : integer range 0 to 15;
-signal end_spot : integer range 0 to 119;
+--signal end_spot : integer range 0 to 119;
 signal store_length :STD_LOGIC_VECTOR(11 DOWNTO 0);
 signal queue : STD_LOGIC_VECTOR(127 DOWNTO 0);
 signal vlan_value : STD_LOGIC_VECTOR(7 DOWNTO 0);
 signal priority_bits :STD_LOGIC_VECTOR(2 DOWNTO 0);
 signal buff_prior : STD_LOGIC;
 signal buff_extract : STD_LOGIC;
-
+signal can_cycle : STD_LOGIC;
 
 begin
 	process(frame_seg, ctrl_block, buffer_empty, clk, reset)
 	begin
 			if(clk'event and clk = '1') then
-			
-				if(buffer_empty = '0') then -- segments are in buffer
+				if(start_bit = '1') then
+					can_cycle <= '1';	-- to be used to keep cycling after start_bit is low
+				end if;
+				
+				if(can_cycle = '1' or start_bit = '1') then -- full frame is ready, on first cycle (cc = 0, sb = 1), all others (cc = 1, sb = 0)
 				
 					if(priority_count = 0) then -- get length and frame id, set everything else to zero on first cycle
 						tagged_bit <= '0';
 						priority_bit <= '0';
 						discard_bit <= '0';
-						end_spot <= 111;
+						--end_spot <= 111;
 						priority_read_valid <= '0';
 						extract_read_valid <= '0';
 						frame_read_valid <= '1';
@@ -156,7 +160,7 @@ begin
 					addr_count <= 0;
 					priority_count <= 0;
 					priority_bit <= '0';
-					end_spot <= 119;
+					--end_spot <= 119;
 					priority_read_valid <= '0';
 					extract_read_valid <= '0';
 					store_length <= (0 => '0', others => '0');
@@ -167,6 +171,7 @@ begin
 					buff_prior <= '0';
 					tagged_bit <= '0';
 					read_enable <= '0';
+					can_cycle <= '0';
 				end if;
 			end if;
 	end process;
