@@ -23,8 +23,8 @@ port(
 		extract_read_valid : OUT STD_LOGIC;
 		priority_read_valid : OUT STD_LOGIC;
 		frame_read_valid : OUT STD_LOGIC;
-		counter_one : OUT integer range 0 to 11;
-		counter_two : OUT integer range 0 to 15;
+		--counter_one : OUT integer range 0 to 11;
+		--counter_two : OUT integer range 0 to 15;
 		--test_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
 		frame_id : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
 );
@@ -124,8 +124,8 @@ begin
 					
 				end if; 
 				
-				counter_one <= addr_count;	-- testing purposes
-				counter_two <= priority_count;  -- testing purposes
+				--counter_one <= addr_count;	-- testing purposes
+				--counter_two <= priority_count;  -- testing purposes
 				
 				if(buff_extract = '1' and table_rdy = '1') then -- set actual look now addr bit
 					extract_read_valid <= '1';
