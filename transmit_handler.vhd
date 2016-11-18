@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity transmit_handler is
 
 	port (
-			clock, reset, priority_in, frame_q_is_empty, start: in std_logic;
+			clock, reset, priority_in, frame_q_is_empty, start, discard: in std_logic;
 			dest_port: in std_logic_vector (3 downto 0);
 			frame_data_in: in std_logic_vector (7 downto 0);
 			ctrl_block_in: in std_logic_vector (23 downto 0);
@@ -22,7 +22,7 @@ entity transmit_handler is
 				(waiting, first_transmit, transmitting);
 				signal state_reg, state_next: state_type;
 		
-		signal ctrl_we_block, frame_we_block: std_logic_vector(3 downto 0);
+		signal ctrl_we_block, frame_we_block, discard_block: std_logic_vector(3 downto 0);
 		
 		component register_1 is
 								PORT(clock: in std_logic;
@@ -62,7 +62,10 @@ entity transmit_handler is
 		END component;
 		
 	begin
-	
+		discard_block(3) <= discard;
+		discard_block(2) <= discard;	
+		discard_block(1) <= discard;
+		discard_block(0) <= discard;
 		priority_reg: register_1 PORT MAP(
 							clock => clock,
 							reset => reset,
@@ -75,7 +78,7 @@ entity transmit_handler is
 							clock => not(clock),
 							reset => reset,
 							write_enable => '1',
-							data_in => frame_we_block,
+							data_in => (frame_we_block and discard_block) ,
 							data_out => frame_we
 							);
 							
@@ -83,7 +86,7 @@ entity transmit_handler is
 							clock => not(clock),
 							reset => reset,
 							write_enable => '1',
-							data_in => ctrl_we_block,
+							data_in => (ctrl_we_block and discard_block),
 							data_out => ctrl_block_we
 							);
 							
