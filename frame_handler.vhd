@@ -26,7 +26,8 @@ entity frame_handler is
 		frame_peek_value_4:						in std_logic_vector (7 DOWNTO 0);
 		frame_queue_empty : 						in	std_logic_vector (3 DOWNTO 0);
 		control_block_buffer_queue_empty : 	in std_logic;
-
+		transmit_finished :						in std_logic;
+		
 		control_read_enable_frame_queue:		out std_logic_vector (3 DOWNTO 0);
 		frame_finished:							out std_logic;
 		frame_data_block:							out std_logic_vector (7 DOWNTO 0);
@@ -34,15 +35,16 @@ entity frame_handler is
 		counter_output:							out std_logic_vector (31 DOWNTO 0); --for debugging purposes
 		in_peek_state:								out std_logic;
 		in_wait_state:								out std_logic;
+		in_initial_state:							out std_logic;
 		write_reg: 									out std_logic;
-		is_queue_empty_sid:							out std_logic
+		is_queue_empty_sid:						out std_logic
 	);
 end frame_handler;
 
 
 
 architecture frame of frame_handler is
-	type state_type is (wait_state, peek_state, write_state, delete_state, frame_finished_state);
+	type state_type is (initial_state, wait_state, peek_state, write_state, delete_state, frame_finished_state);
 	signal state_current, state_next : state_type;
 	signal counter : integer range 0 to 2056 := 0; --2048 + 8 = 2056, holds the value of counter
 	signal register_output : std_logic_vector (31 DOWNTO 0);
@@ -71,23 +73,37 @@ begin
 	
 	process(clock_sig, reset_sig,is_queue_empty)
 	begin
-	if (reset_sig = '1') then state_current <= wait_state;
+	if (reset_sig = '1') then state_current <= initial_state;
 	elsif(clock_sig'event and clock_sig='1') then
 		--new current state becomes next state
 		state_current <= state_next;
 	end if;
 	end process;
 	--next state logic
-	process(state_current, control_block, counter, register_output, control_block_buffer_queue_empty,is_queue_empty)
+	process(state_current, control_block, counter, register_output, control_block_buffer_queue_empty,is_queue_empty, transmit_finished)
 	--initialize variable added_value to 0 at beginning
 	variable added_value : integer := 0;
 	begin
 	case state_current is 
+		when initial_state =>
+			register_write_enable <= '0';
+			register_input <= register_output;
+			added_value := 0;
+			--for initial state - if control block queue is empty stay in initial state, otherwise, go to peek state
+			--can't go to wait state from here if control block is not empty because will be waiting on transmit finished signal
+			--which would not have been asserted in the very beginning so would wait forever
+			if (control_block_buffer_queue_empty = '1') then state_next <= initial_state;
+			else state_next <= peek_state;
+			end if;
 		when wait_state =>
 			register_write_enable <= '0';
 			register_input <= register_output;
 			added_value := 0;
-			if (control_block_buffer_queue_empty = '1') then state_next <= wait_state;
+			--if control block buffer queue is empty, go back to initial state
+			if (control_block_buffer_queue_empty = '1') then state_next <= initial_state;
+			--not empty but transmit of current frame has not finished - stay in wait state
+			elsif (transmit_finished = '0') then state_next <= wait_state;
+			--lastly, if not empty and transmit of current frame has finished, then can move on to next frame
 			else state_next <= peek_state;
 			end if;
 		when peek_state =>
@@ -168,36 +184,48 @@ begin
 	process(state_current, receive_port_to_read)
 	begin
 		case state_current is 
+			when initial_state =>
+				control_read_enable_frame_queue <= "0000";
+				frame_finished <= '0';
+				write_enable_frame_buffer_queue <= '0';
+				in_peek_state <= '0';
+				in_wait_state <= '0';
+				in_initial_state <= '1';
 			when wait_state =>
 				control_read_enable_frame_queue <= "0000";
 				frame_finished <= '0';
 				write_enable_frame_buffer_queue <= '0';
 				in_peek_state <= '0';
 				in_wait_state <= '1';
+				in_initial_state <= '0';
 			when peek_state =>
 				control_read_enable_frame_queue <= "0000";
 				frame_finished <= '0';
 				write_enable_frame_buffer_queue <= '0';
 				in_peek_state <= '1';
 				in_wait_state <= '0';
+				in_initial_state <= '0';
 			when write_state =>
 				control_read_enable_frame_queue <= "0000";
 				frame_finished <= '0';
 				write_enable_frame_buffer_queue <= '1';
 				in_peek_state <= '0';
 				in_wait_state <= '0';
+				in_initial_state <= '0';
 			when delete_state =>
 				control_read_enable_frame_queue <= receive_port_to_read;
 				frame_finished <= '0';
 				write_enable_frame_buffer_queue <= '0';
 				in_peek_state <= '0';
-				in_wait_state <= '0';
+				in_wait_state <= '0';				
+				in_initial_state <= '0';
 			when frame_finished_state =>
 				control_read_enable_frame_queue <= "0000";
 				frame_finished <= '1';
 				write_enable_frame_buffer_queue <= '0';
 				in_peek_state <= '0';
 				in_wait_state <= '0';
+				in_initial_state <= '0';
 			end case;
 	end process;
 end frame;
