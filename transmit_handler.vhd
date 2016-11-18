@@ -73,7 +73,7 @@ entity transmit_handler is
 		frame_q_block(0) <= not frame_q_is_empty;
 		
 		priority_reg: register_1 PORT MAP(
-							clock => clock,
+							clock => not clock,
 							reset => reset,
 							write_enable => '1',
 							data_in => priority_in,
@@ -81,7 +81,7 @@ entity transmit_handler is
 							);
 							
 		port_reg: register_4 PORT MAP(
-							clock => clock,
+							clock => not clock,
 							reset => reset,
 							write_enable => '1',
 							data_in => (frame_we_block and discard_block and frame_q_block) ,
@@ -89,7 +89,7 @@ entity transmit_handler is
 							);
 							
 		ctrl_port_reg: register_4 PORT MAP(
-							clock => clock,
+							clock => not clock,
 							reset => reset,
 							write_enable => '1',
 							data_in => (ctrl_we_block and discard_block and frame_q_block),
@@ -97,7 +97,7 @@ entity transmit_handler is
 							);
 							
 		frame_data_reg: register_8 PORT MAP(
-							clock => clock,
+							clock => not clock,
 							reset => reset,
 							write_enable => '1',
 							data_in => frame_data_in,
@@ -105,7 +105,7 @@ entity transmit_handler is
 							);
 							
 		ctrl_block_reg: register_24 PORT MAP(
-							clock => clock,
+							clock => not clock,
 							reset => reset,
 							write_enable => '1',
 							data_in => ctrl_block_in,
