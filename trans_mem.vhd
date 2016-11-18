@@ -13,7 +13,10 @@ entity trans_mem is
 				priority_out, sig_complete, read_frame_q, read_ctrl_q: out std_logic;
 				ctrl_block_we, frame_we: out std_logic_vector (3 downto 0);
 				frame_data_out: out std_logic_vector (7 downto 0);
-				ctrl_block_out: out std_logic_vector (23 downto 0)
+				ctrl_block_out: out std_logic_vector (23 downto 0);
+				
+				--debug ports
+				start_between_debug_out: out std_logic
 				);
 				
 		end trans_mem;
@@ -50,7 +53,7 @@ entity trans_mem is
 				signal priority_between, start_between: std_logic;
 				
 			begin
-				
+				start_between_debug_out <= start_between;
 				mem: memory PORT MAP(
 					clk => clk,
 					reset => reset,

@@ -68,7 +68,7 @@ entity memory is
 	
 		end process;
 		
-		process(state_reg, priority_ready)
+		process(state_reg, port_ready)
 			
 			begin
 				
@@ -76,7 +76,7 @@ entity memory is
 					
 					when idle =>
 						
-						if (priority_ready = '1') then state_next <= start;
+						if (port_ready = '1') then state_next <= start;
 						else state_next <= idle;
 						end if;
 						

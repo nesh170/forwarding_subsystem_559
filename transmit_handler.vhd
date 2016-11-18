@@ -19,10 +19,10 @@ entity transmit_handler is
 	architecture tr_handle of transmit_handler is
 		
 		type state_type is
-				(waiting, first_transmit, transmitting);
+				(complete, waiting, first_transmit, transmitting);
 				signal state_reg, state_next: state_type;
 		
-		signal ctrl_we_block, frame_we_block, discard_block: std_logic_vector(3 downto 0);
+		signal ctrl_we_block, frame_we_block, discard_block, frame_q_block: std_logic_vector(3 downto 0);
 		
 		component register_1 is
 								PORT(clock: in std_logic;
@@ -62,10 +62,16 @@ entity transmit_handler is
 		END component;
 		
 	begin
-		discard_block(3) <= discard;
-		discard_block(2) <= discard;	
-		discard_block(1) <= discard;
-		discard_block(0) <= discard;
+		discard_block(3) <= not discard;
+		discard_block(2) <= not discard;	
+		discard_block(1) <= not discard;
+		discard_block(0) <= not discard;
+		
+		frame_q_block(3) <= not frame_q_is_empty;
+		frame_q_block(2) <= not frame_q_is_empty;
+		frame_q_block(1) <= not frame_q_is_empty;
+		frame_q_block(0) <= not frame_q_is_empty;
+		
 		priority_reg: register_1 PORT MAP(
 							clock => clock,
 							reset => reset,
@@ -75,23 +81,23 @@ entity transmit_handler is
 							);
 							
 		port_reg: register_4 PORT MAP(
-							clock => not(clock),
+							clock => clock,
 							reset => reset,
 							write_enable => '1',
-							data_in => (frame_we_block and discard_block) ,
+							data_in => (frame_we_block and discard_block and frame_q_block) ,
 							data_out => frame_we
 							);
 							
 		ctrl_port_reg: register_4 PORT MAP(
-							clock => not(clock),
+							clock => clock,
 							reset => reset,
 							write_enable => '1',
-							data_in => (ctrl_we_block and discard_block),
+							data_in => (ctrl_we_block and discard_block and frame_q_block),
 							data_out => ctrl_block_we
 							);
 							
 		frame_data_reg: register_8 PORT MAP(
-							clock => not(clock),
+							clock => clock,
 							reset => reset,
 							write_enable => '1',
 							data_in => frame_data_in,
@@ -99,7 +105,7 @@ entity transmit_handler is
 							);
 							
 		ctrl_block_reg: register_24 PORT MAP(
-							clock => not(clock),
+							clock => clock,
 							reset => reset,
 							write_enable => '1',
 							data_in => ctrl_block_in,
@@ -131,11 +137,14 @@ entity transmit_handler is
 						state_next <= transmitting;
 						
 					when transmitting =>
-						if(frame_q_is_empty = '1' and start = '0') then state_next <= waiting;
+						if(frame_q_is_empty = '1' and start = '0') then state_next <= complete;
 						elsif (frame_q_is_empty = '1' and start = '1') then state_next <= first_transmit;
 						else state_next <= transmitting;
 						end if;
-						
+					
+					when complete =>
+						state_next <= waiting;
+					
 				end case;
 		end process;
 		
@@ -148,7 +157,7 @@ entity transmit_handler is
 					when waiting => 
 						ctrl_we_block <= "0000";
 						frame_we_block <= "0000";
-						sig_complete <= '1';
+						sig_complete <= '0';
 						read_frame_q <= '0';
 						read_ctrl_q <= '0';
 						
@@ -164,6 +173,13 @@ entity transmit_handler is
 						frame_we_block <= dest_port;
 						sig_complete <= '0';
 						read_frame_q <= '1';
+						read_ctrl_q <= '0';
+					
+					when complete => 
+						ctrl_we_block <= "0000";
+						frame_we_block <= "0000";
+						sig_complete <= '1';
+						read_frame_q <= '0';
 						read_ctrl_q <= '0';
 						
 				end case;

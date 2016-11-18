@@ -49,8 +49,14 @@ PORT(
 		control_block_debug_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
 		recv_port_currently_debug: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		is_empty_debug_recv_control_block:OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		recv_handler_1_control_block_debug_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0)
-		
+		recv_handler_1_control_block_debug_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
+		frame_queue_in_debug_out: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+		frame_buffer_empty_out_debug: OUT STD_LOGIC;
+		vlan_discard_out_debug	: OUT STD_LOGIC;
+		control_block_buffer_read_debug_out : OUT STD_LOGIC;
+		frame_buffer_read_debug_out : OUT STD_LOGIC;
+		debug_start_between_out: OUT STD_LOGIC;
+		frame_transmitted_debug_out: OUT STD_LOGIC
 	);
 END forwarding_subsystem;	
 	
@@ -65,7 +71,7 @@ ARCHITECTURE fs_arch OF forwarding_subsystem IS
 	SIGNAL frame_finished_sig,write_enable_frame_buffer_queue: STD_LOGIC;
 	SIGNAL frame_queue_in,frame_queue_out, frame_queue_out_vlan: STD_LOGIC_VECTOR(7 DOWNTO 0);
 	SIGNAL vlan_priority_bit, vlan_tagged_bit, vlan_discard_bit, vlan_extract_read_valid, vlan_priority_read_valid: STD_LOGIC;
-
+	SIGNAL frame_fully_transmitted_sig: STD_LOGIC;
 BEGIN
 is_empty_debug_recv_control_block <= recv_control_block_empty;
 	recv_handler_1: receive_handler PORT MAP(
@@ -151,10 +157,11 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		is_empty_control_block => is_empty_stv,
 		is_empty_block_buffer => is_empty_control_block_buffer,
 		is_empty_frame_buffer => is_empty_frame_buffer,
-		frame_fully_transmited => read_control_block_buffer,
+		frame_fully_transmited => frame_fully_transmitted_sig,
 		recv_port_to_read => receive_port_read
 	);
 	
+	frame_transmitted_debug_out <= frame_fully_transmitted_sig;
 	recv_port_currently_debug <= receive_port_read;
 	
 	control_block_buffer: control_block_queue PORT MAP (
@@ -185,6 +192,8 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		frame_data_block => frame_queue_in,
 		write_enable_frame_buffer_queue => write_enable_frame_buffer_queue
 	);
+	
+	frame_queue_in_debug_out <= frame_queue_in;
 
 	frame_buffer : frame_queue PORT MAP (
 		aclr		=> reset,	
@@ -249,7 +258,13 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		frame_we => xmit_ctrl_write_frame,
 		frame_data_out => xmit_frame_out,
 		ctrl_block_out => xmit_control_block_out,
-		discard => vlan_discard_bit
+		discard => vlan_discard_bit,
+		start_between_debug_out => debug_start_between_out,
+		sig_complete => frame_fully_transmitted_sig
 	);
+	control_block_buffer_read_debug_out <= read_control_block_buffer;
+	frame_buffer_read_debug_out <= frame_buffer_read;
+	frame_buffer_empty_out_debug <= is_empty_frame_buffer;
+	vlan_discard_out_debug <= vlan_discard_bit;
 
 END fs_arch;
