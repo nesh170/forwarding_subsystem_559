@@ -43,7 +43,14 @@ PORT(
 		xmit_ctrl_write_frame:OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		xmit_control_block_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
 		xmit_ctrl_write_control_block: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		xmit_high_priority:OUT STD_LOGIC
+		xmit_high_priority:OUT STD_LOGIC;
+		
+		--Debugging Port
+		control_block_debug_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
+		recv_port_currently_debug: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		is_empty_debug_recv_control_block:OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		recv_handler_1_control_block_debug_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0)
+		
 	);
 END forwarding_subsystem;	
 	
@@ -60,6 +67,7 @@ ARCHITECTURE fs_arch OF forwarding_subsystem IS
 	SIGNAL vlan_priority_bit, vlan_tagged_bit, vlan_discard_bit, vlan_extract_read_valid, vlan_priority_read_valid: STD_LOGIC;
 
 BEGIN
+is_empty_debug_recv_control_block <= recv_control_block_empty;
 	recv_handler_1: receive_handler PORT MAP(
 		clock => clock,
 		reset => reset,
@@ -74,6 +82,8 @@ BEGIN
 		frame_in => recv_frame_in_1,
 		frame_empty => recv_frame_empty(0)
 	);
+	
+	recv_handler_1_control_block_debug_out <= recv_control_block_out_sig_1;
 	
 	recv_handler_2: receive_handler PORT MAP(
 		clock => clock,
@@ -141,8 +151,11 @@ BEGIN
 		is_empty_control_block => is_empty_stv,
 		is_empty_block_buffer => is_empty_control_block_buffer,
 		is_empty_frame_buffer => is_empty_frame_buffer,
+		frame_fully_transmited => read_control_block_buffer,
 		recv_port_to_read => receive_port_read
 	);
+	
+	recv_port_currently_debug <= receive_port_read;
 	
 	control_block_buffer: control_block_queue PORT MAP (
 		aclr		=> reset,	
@@ -153,6 +166,8 @@ BEGIN
 		empty		=> is_empty_control_block_buffer,
 		q			=> control_block_buffer_out
 	);
+	
+	control_block_debug_out <= control_block_buffer_out;
 	
 	frame_handle: frame_handler PORT MAP (
 		clock_sig => clock,
@@ -182,7 +197,7 @@ BEGIN
 	);	
 	
 	frame_buffer_vlan : frame_queue PORT MAP (
-		aclr		=> reset,	
+		aclr		=> reset or vlan_priority_read_valid,	
 		clock		=> clock,
 		data		=> frame_queue_in,
 		rdreq		=> frame_buffer_read_vlan,
@@ -191,7 +206,7 @@ BEGIN
 		q			=> frame_queue_out_vlan
 	);	
 	
-	vlan_handler : vlan PORT MAP ( --frame_finished_sig, vlan_discard_bit and table_trigger
+	vlan_handler : vlan PORT MAP (
 		frame_seg => frame_queue_out_vlan,
 		ctrl_block => control_block_buffer_out,
 		buffer_empty => is_empty_frame_buffer_vlan,
@@ -203,7 +218,7 @@ BEGIN
 		discard_bit => vlan_discard_bit,
 		src_addr => table_source_address,
 		dest_addr => table_destination_address,
-		extract_read_valid => vlan_extract_read_valid,
+		extract_read_valid => table_trigger,
 		priority_read_valid => vlan_priority_read_valid,
 		read_enable => frame_buffer_read_vlan,
 		frame_id => monitor_frame_id
@@ -212,7 +227,7 @@ BEGIN
 	--table source port
 	table_source_port <= receive_port_read;
 	--monitor outputs
-		monitor_look_now <= vlan_extract_read_valid; -- TODO CHECK WITH STEVEN :/
+		monitor_look_now <= vlan_priority_read_valid; 
 		monitor_tagged <= vlan_tagged_bit;
 		monitor_high_priority <= vlan_priority_bit;
 		
@@ -220,7 +235,7 @@ BEGIN
 		clk => clock,
 		reset => reset,
 		priority_in => vlan_priority_bit,
-		port_ready =>  table_output_ready, --TODO CHECK WITH STEVEN AND ALEX :/
+		port_ready =>  table_output_ready, 
 		priority_ready => vlan_priority_read_valid,
 		frame_q_is_empty => is_empty_frame_buffer,
 		frame_data_in => frame_queue_out,
