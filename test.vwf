@@ -4196,8 +4196,8 @@ TRANSITION_LIST("recv_control_block_in_1[4]")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 40.0;
-		LEVEL 0 FOR 940.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 960.0;
 	}
 }
 
@@ -4206,7 +4206,9 @@ TRANSITION_LIST("recv_control_block_in_1[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 40.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 940.0;
 	}
 }
 
@@ -4422,7 +4424,9 @@ TRANSITION_LIST("recv_control_block_in_2[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 960.0;
 	}
 }
 
@@ -4908,7 +4912,9 @@ TRANSITION_LIST("recv_ctrl_write_control_block[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 960.0;
 	}
 }
 
@@ -4946,7 +4952,9 @@ TRANSITION_LIST("recv_ctrl_write_frame[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 960.0;
 	}
 }
 
@@ -4956,8 +4964,8 @@ TRANSITION_LIST("recv_ctrl_write_frame[0]")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 80.0;
-		LEVEL 0 FOR 900.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 920.0;
 	}
 }
 
@@ -4966,9 +4974,7 @@ TRANSITION_LIST("recv_frame_in_1[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 80.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 900.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -4986,7 +4992,9 @@ TRANSITION_LIST("recv_frame_in_1[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 920.0;
 	}
 }
 
@@ -4996,8 +5004,8 @@ TRANSITION_LIST("recv_frame_in_1[4]")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 40.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 940.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 920.0;
 	}
 }
 
@@ -5030,7 +5038,9 @@ TRANSITION_LIST("recv_frame_in_1[1]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 920.0;
 	}
 }
 
@@ -5039,9 +5049,7 @@ TRANSITION_LIST("recv_frame_in_1[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 920.0;
+		LEVEL 0 FOR 1000.0;
 	}
 }
 
@@ -5068,7 +5076,9 @@ TRANSITION_LIST("recv_frame_in_2[5]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 960.0;
 	}
 }
 
@@ -5113,7 +5123,9 @@ TRANSITION_LIST("recv_frame_in_2[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 1000.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 960.0;
 	}
 }
 
@@ -10848,7 +10860,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 351;
 	TREE_LEVEL = 0;
 	CHILDREN = 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375;
@@ -10858,7 +10870,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[23]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 352;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10868,7 +10880,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[22]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 353;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10878,7 +10890,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[21]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 354;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10888,7 +10900,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[20]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 355;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10898,7 +10910,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[19]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 356;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10908,7 +10920,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[18]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 357;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10918,7 +10930,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[17]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 358;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10928,7 +10940,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[16]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 359;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10938,7 +10950,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[15]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 360;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10948,7 +10960,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[14]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 361;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10958,7 +10970,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[13]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 362;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10968,7 +10980,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[12]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 363;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10978,7 +10990,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[11]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 364;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10988,7 +11000,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[10]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 365;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -10998,7 +11010,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[9]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 366;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11008,7 +11020,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[8]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 367;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11018,7 +11030,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[7]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 368;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11028,7 +11040,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[6]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 369;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11038,7 +11050,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[5]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 370;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11048,7 +11060,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[4]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 371;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11058,7 +11070,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 372;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11068,7 +11080,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 373;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11078,7 +11090,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 374;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11088,7 +11100,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_control_block_out[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 375;
 	TREE_LEVEL = 1;
 	PARENT = 351;
@@ -11098,7 +11110,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_control_block";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 376;
 	TREE_LEVEL = 0;
 	CHILDREN = 377, 378, 379, 380;
@@ -11108,7 +11120,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_control_block[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 377;
 	TREE_LEVEL = 1;
 	PARENT = 376;
@@ -11118,7 +11130,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_control_block[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 378;
 	TREE_LEVEL = 1;
 	PARENT = 376;
@@ -11128,7 +11140,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_control_block[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 379;
 	TREE_LEVEL = 1;
 	PARENT = 376;
@@ -11138,7 +11150,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_control_block[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 380;
 	TREE_LEVEL = 1;
 	PARENT = 376;
@@ -11148,7 +11160,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_frame";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 381;
 	TREE_LEVEL = 0;
 	CHILDREN = 382, 383, 384, 385;
@@ -11158,7 +11170,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_frame[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 382;
 	TREE_LEVEL = 1;
 	PARENT = 381;
@@ -11168,7 +11180,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_frame[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 383;
 	TREE_LEVEL = 1;
 	PARENT = 381;
@@ -11178,7 +11190,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_frame[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 384;
 	TREE_LEVEL = 1;
 	PARENT = 381;
@@ -11188,7 +11200,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_ctrl_write_frame[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 385;
 	TREE_LEVEL = 1;
 	PARENT = 381;
@@ -11198,7 +11210,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_frame_out";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 386;
 	TREE_LEVEL = 0;
 	CHILDREN = 387, 388, 389, 390, 391, 392, 393, 394;
@@ -11208,7 +11220,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_frame_out[7]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 387;
 	TREE_LEVEL = 1;
 	PARENT = 386;
@@ -11218,7 +11230,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_frame_out[6]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 388;
 	TREE_LEVEL = 1;
 	PARENT = 386;
@@ -11228,7 +11240,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_frame_out[5]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 389;
 	TREE_LEVEL = 1;
 	PARENT = 386;
@@ -11238,7 +11250,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_frame_out[4]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 390;
 	TREE_LEVEL = 1;
 	PARENT = 386;
@@ -11248,7 +11260,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_frame_out[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 391;
 	TREE_LEVEL = 1;
 	PARENT = 386;
@@ -11258,7 +11270,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_frame_out[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 392;
 	TREE_LEVEL = 1;
 	PARENT = 386;
@@ -11268,7 +11280,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_frame_out[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 393;
 	TREE_LEVEL = 1;
 	PARENT = 386;
@@ -11278,7 +11290,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "xmit_frame_out[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 394;
 	TREE_LEVEL = 1;
 	PARENT = 386;
