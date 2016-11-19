@@ -190,6 +190,7 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		control_read_enable_frame_queue => recv_frame_read,
 		frame_finished => frame_finished_sig,
 		frame_data_block => frame_queue_in,
+		transmit_finished => frame_fully_transmitted_sig,
 		write_enable_frame_buffer_queue => write_enable_frame_buffer_queue
 	);
 	
