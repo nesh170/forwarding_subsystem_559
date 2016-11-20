@@ -43,23 +43,26 @@ signal priority_bits :STD_LOGIC_VECTOR(2 DOWNTO 0);
 signal buff_prior : STD_LOGIC;
 signal buff_extract : STD_LOGIC;
 signal buff_tagged : STD_LOGIC;
+signal buff_read_enable : STD_LOGIC;
 signal can_cycle : STD_LOGIC;
 
 begin
 	process(frame_seg, ctrl_block, buffer_empty, clk, reset)
 	begin
 			if(clk'event and clk = '1') then
-				if(table_rdy = '0' and buff_prior = '1') then
+				if(buffer_empty = '1' or reset = '1' or (table_rdy = '0' and buff_prior = '1')) then
+					buff_read_enable <= '0';
 					read_enable <= '0';
-				else
-					read_enable <= '1';
+				elsif(start_bit = '1') then
+					buff_read_enable <= '1';
 				end if;
 
-				if(start_bit = '1') then
+				if(buff_read_enable = '1') then
 					can_cycle <= '1';	-- to be used to keep cycling after start_bit is low
+					read_enable <= '1';
 				end if;
 				
-				if(can_cycle = '1' or start_bit = '1') then -- full frame is ready, on first cycle (cc = 0, sb = 1), all others (cc = 1, sb = 0)
+				if(can_cycle = '1') then -- full frame is ready, on first cycle (cc = 0, sb = 1), all others (cc = 1, sb = 0)
 				
 					if(priority_count = 0) then -- get length and frame id, set everything else to zero on first cycle
 						tagged_bit <= '0';
@@ -189,6 +192,8 @@ begin
 					buff_prior <= '0';
 					tagged_bit <= '0';
 					can_cycle <= '0';
+					buff_read_enable <= '0';
+					read_enable <= '0';
 				end if;
 			end if;
 	end process;
