@@ -34,7 +34,7 @@ end entity vlan;
 
 architecture check of vlan IS
 
-signal addr_count : integer range 0 to 11;
+--signal addr_count : integer range 0 to 11;
 signal priority_count : integer range 0 to 15;
 signal store_length :STD_LOGIC_VECTOR(11 DOWNTO 0);
 signal queue : STD_LOGIC_VECTOR(127 DOWNTO 0);
@@ -118,13 +118,11 @@ begin
 					
 					if(priority_count < 15) then  -- this will happen on the first cycle as well, increase counter
 						
-						if(addr_count < 11) then -- increase counter
-							addr_count <= addr_count + 1;
-						else							 -- do not increase counter, set buffer addr look now bit
+						if(priority_count = 11) then						 -- do not increase counter, set buffer addr look now bit
 							buff_extract <= '1';
 						end if;
 						
-						if(priority_count = 12) then
+						if(priority_count = 13) then
 							buff_tagged <= '1';
 						end if;
 						
@@ -143,14 +141,23 @@ begin
 				
 				if(buff_extract = '1' and table_rdy = '1') then -- set actual look now addr bit
 					extract_read_valid <= '1';
+					buff_extract <= '0';
+				else
+					extract_read_valid <= '0';
 				end if;
 				
 				if(buff_tagged = '1') then
 					tagged_read_valid <= '1';
+					buff_tagged <= '0';
+				else
+					tagged_read_valid <= '0';
 				end if;
 				
 				if(buff_prior = '1') then  -- set actual look now priority bit
 					priority_read_valid <= '1';
+					buff_prior <= '0';
+				else
+					priority_read_valid <= '0';
 				end if;
 				
 				
@@ -176,7 +183,7 @@ begin
 				if(buffer_empty = '1' or reset = '1') then  -- buffer is empty, reset everything
 					frame_read_valid <= '0';
 					discard_bit <= '0';
-					addr_count <= 0;
+					--addr_count <= 0;
 					priority_count <= 0;
 					priority_bit <= '0';
 					priority_read_valid <= '0';
