@@ -297,6 +297,7 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		output_ready => table_output_ready,
 		input_ready => table_input_ready
 	);
+	
 	table_trigger_debug_out <= table_trigger;
 	table_output_ready_debug_out <= table_output_ready;
 	table_input_ready_debug_out <= table_input_ready;
