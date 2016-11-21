@@ -3074,7 +3074,9 @@ TRANSITION_LIST("recv_control_block_in_1[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 8000.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 7920.0;
 	}
 }
 
@@ -3830,8 +3832,8 @@ TRANSITION_LIST("recv_ctrl_write_frame[0]")
 	{
 		REPEAT = 1;
 		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 960.0;
-		LEVEL 0 FOR 7020.0;
+		LEVEL 1 FOR 980.0;
+		LEVEL 0 FOR 7000.0;
 	}
 }
 
@@ -3872,8 +3874,8 @@ TRANSITION_LIST("recv_frame_in_1[4]")
 		LEVEL 0 FOR 320.0;
 		LEVEL 1 FOR 260.0;
 		LEVEL 0 FOR 380.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 7020.0;
+		LEVEL 1 FOR 40.0;
+		LEVEL 0 FOR 7000.0;
 	}
 }
 
@@ -3997,7 +3999,9 @@ TRANSITION_LIST("recv_frame_in_1[0]")
 		LEVEL 1 FOR 20.0;
 		LEVEL 0 FOR 20.0;
 		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 7040.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 7000.0;
 	}
 }
 
