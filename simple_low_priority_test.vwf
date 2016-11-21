@@ -533,306 +533,6 @@ SIGNAL("xmit_high_priority")
 	PARENT = "";
 }
 
-SIGNAL("control_block_debug_out")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 24;
-	LSB_INDEX = 0;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("control_block_debug_out[23]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[22]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[21]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[20]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[19]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[18]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[17]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[16]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[15]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[14]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[13]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[12]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[11]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[10]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[9]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[8]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[7]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[6]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[5]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[4]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[3]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[2]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[1]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("control_block_debug_out[0]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "control_block_debug_out";
-}
-
-SIGNAL("is_empty_debug_recv_control_block")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 4;
-	LSB_INDEX = 0;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("is_empty_debug_recv_control_block[3]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "is_empty_debug_recv_control_block";
-}
-
-SIGNAL("is_empty_debug_recv_control_block[2]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "is_empty_debug_recv_control_block";
-}
-
-SIGNAL("is_empty_debug_recv_control_block[1]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "is_empty_debug_recv_control_block";
-}
-
-SIGNAL("is_empty_debug_recv_control_block[0]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "is_empty_debug_recv_control_block";
-}
-
 SIGNAL("monitor_frame_id")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
@@ -961,306 +661,6 @@ SIGNAL("monitor_frame_id[0]")
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
 	PARENT = "monitor_frame_id";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 24;
-	LSB_INDEX = 0;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[23]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[22]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[21]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[20]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[19]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[18]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[17]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[16]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[15]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[14]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[13]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[12]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[11]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[10]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[9]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[8]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[7]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[6]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[5]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[4]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[3]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[2]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[1]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_handler_1_control_block_debug_out[0]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_handler_1_control_block_debug_out";
-}
-
-SIGNAL("recv_port_currently_debug")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 4;
-	LSB_INDEX = 0;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("recv_port_currently_debug[3]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_port_currently_debug";
-}
-
-SIGNAL("recv_port_currently_debug[2]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_port_currently_debug";
-}
-
-SIGNAL("recv_port_currently_debug[1]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_port_currently_debug";
-}
-
-SIGNAL("recv_port_currently_debug[0]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "recv_port_currently_debug";
 }
 
 SIGNAL("xmit_control_block_out")
@@ -1703,156 +1103,6 @@ SIGNAL("xmit_frame_out[0]")
 	PARENT = "xmit_frame_out";
 }
 
-SIGNAL("frame_queue_in_debug_out")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 8;
-	LSB_INDEX = 0;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("frame_queue_in_debug_out[7]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "frame_queue_in_debug_out";
-}
-
-SIGNAL("frame_queue_in_debug_out[6]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "frame_queue_in_debug_out";
-}
-
-SIGNAL("frame_queue_in_debug_out[5]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "frame_queue_in_debug_out";
-}
-
-SIGNAL("frame_queue_in_debug_out[4]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "frame_queue_in_debug_out";
-}
-
-SIGNAL("frame_queue_in_debug_out[3]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "frame_queue_in_debug_out";
-}
-
-SIGNAL("frame_queue_in_debug_out[2]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "frame_queue_in_debug_out";
-}
-
-SIGNAL("frame_queue_in_debug_out[1]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "frame_queue_in_debug_out";
-}
-
-SIGNAL("frame_queue_in_debug_out[0]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "frame_queue_in_debug_out";
-}
-
-SIGNAL("vlan_discard_out_debug")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("frame_buffer_empty_out_debug")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("control_block_buffer_read_debug_out")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("frame_buffer_read_debug_out")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("debug_start_between_out")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("frame_transmitted_debug_out")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
 TRANSITION_LIST("clock")
 {
 	NODE
@@ -2292,258 +1542,6 @@ TRANSITION_LIST("xmit_high_priority")
 	}
 }
 
-TRANSITION_LIST("control_block_debug_out[23]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[22]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[21]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[20]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[19]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[18]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[17]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[16]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[15]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[14]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[13]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[12]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[11]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[10]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[9]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[8]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[7]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[6]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[5]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[4]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[3]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_debug_out[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("is_empty_debug_recv_control_block[3]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("is_empty_debug_recv_control_block[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("is_empty_debug_recv_control_block[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("is_empty_debug_recv_control_block[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
 TRANSITION_LIST("monitor_frame_id[11]")
 {
 	NODE
@@ -2644,258 +1642,6 @@ TRANSITION_LIST("monitor_frame_id[1]")
 }
 
 TRANSITION_LIST("monitor_frame_id[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[23]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[22]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[21]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[20]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[19]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[18]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[17]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[16]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[15]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[14]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[13]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[12]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[11]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[10]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[9]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[8]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[7]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[6]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[5]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[4]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[3]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_handler_1_control_block_debug_out[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_port_currently_debug[3]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_port_currently_debug[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_port_currently_debug[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("recv_port_currently_debug[0]")
 {
 	NODE
 	{
@@ -3256,132 +2002,6 @@ TRANSITION_LIST("xmit_frame_out[1]")
 }
 
 TRANSITION_LIST("xmit_frame_out[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_queue_in_debug_out[7]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_queue_in_debug_out[6]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_queue_in_debug_out[5]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_queue_in_debug_out[4]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_queue_in_debug_out[3]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_queue_in_debug_out[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_queue_in_debug_out[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_queue_in_debug_out[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("vlan_discard_out_debug")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_buffer_empty_out_debug")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("control_block_buffer_read_debug_out")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_buffer_read_debug_out")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("debug_start_between_out")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 3000.0;
-	}
-}
-
-TRANSITION_LIST("frame_transmitted_debug_out")
 {
 	NODE
 	{
@@ -3850,9 +2470,9 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "is_empty_debug_recv_control_block";
+	CHANNEL = "xmit_ctrl_write_control_block";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 46;
 	TREE_LEVEL = 0;
 	CHILDREN = 47, 48, 49, 50;
@@ -3860,9 +2480,9 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "is_empty_debug_recv_control_block[3]";
+	CHANNEL = "xmit_ctrl_write_control_block[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 47;
 	TREE_LEVEL = 1;
 	PARENT = 46;
@@ -3870,9 +2490,9 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "is_empty_debug_recv_control_block[2]";
+	CHANNEL = "xmit_ctrl_write_control_block[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 48;
 	TREE_LEVEL = 1;
 	PARENT = 46;
@@ -3880,9 +2500,9 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "is_empty_debug_recv_control_block[1]";
+	CHANNEL = "xmit_ctrl_write_control_block[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 49;
 	TREE_LEVEL = 1;
 	PARENT = 46;
@@ -3890,9 +2510,9 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "is_empty_debug_recv_control_block[0]";
+	CHANNEL = "xmit_ctrl_write_control_block[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
+	RADIX = Unsigned;
 	TREE_INDEX = 50;
 	TREE_LEVEL = 1;
 	PARENT = 46;
@@ -3900,7 +2520,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out";
+	CHANNEL = "xmit_control_block_out";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 51;
@@ -3910,7 +2530,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[23]";
+	CHANNEL = "xmit_control_block_out[23]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 52;
@@ -3920,7 +2540,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[22]";
+	CHANNEL = "xmit_control_block_out[22]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 53;
@@ -3930,7 +2550,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[21]";
+	CHANNEL = "xmit_control_block_out[21]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 54;
@@ -3940,7 +2560,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[20]";
+	CHANNEL = "xmit_control_block_out[20]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 55;
@@ -3950,7 +2570,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[19]";
+	CHANNEL = "xmit_control_block_out[19]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 56;
@@ -3960,7 +2580,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[18]";
+	CHANNEL = "xmit_control_block_out[18]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 57;
@@ -3970,7 +2590,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[17]";
+	CHANNEL = "xmit_control_block_out[17]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 58;
@@ -3980,7 +2600,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[16]";
+	CHANNEL = "xmit_control_block_out[16]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 59;
@@ -3990,7 +2610,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[15]";
+	CHANNEL = "xmit_control_block_out[15]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 60;
@@ -4000,7 +2620,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[14]";
+	CHANNEL = "xmit_control_block_out[14]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 61;
@@ -4010,7 +2630,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[13]";
+	CHANNEL = "xmit_control_block_out[13]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 62;
@@ -4020,7 +2640,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[12]";
+	CHANNEL = "xmit_control_block_out[12]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 63;
@@ -4030,7 +2650,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[11]";
+	CHANNEL = "xmit_control_block_out[11]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 64;
@@ -4040,7 +2660,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[10]";
+	CHANNEL = "xmit_control_block_out[10]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 65;
@@ -4050,7 +2670,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[9]";
+	CHANNEL = "xmit_control_block_out[9]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 66;
@@ -4060,7 +2680,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[8]";
+	CHANNEL = "xmit_control_block_out[8]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 67;
@@ -4070,7 +2690,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[7]";
+	CHANNEL = "xmit_control_block_out[7]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 68;
@@ -4080,7 +2700,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[6]";
+	CHANNEL = "xmit_control_block_out[6]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 69;
@@ -4090,7 +2710,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[5]";
+	CHANNEL = "xmit_control_block_out[5]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 70;
@@ -4100,7 +2720,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[4]";
+	CHANNEL = "xmit_control_block_out[4]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 71;
@@ -4110,7 +2730,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[3]";
+	CHANNEL = "xmit_control_block_out[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 72;
@@ -4120,7 +2740,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[2]";
+	CHANNEL = "xmit_control_block_out[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 73;
@@ -4130,7 +2750,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[1]";
+	CHANNEL = "xmit_control_block_out[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 74;
@@ -4140,7 +2760,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "control_block_debug_out[0]";
+	CHANNEL = "xmit_control_block_out[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 75;
@@ -4150,7 +2770,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_port_currently_debug";
+	CHANNEL = "xmit_ctrl_write_frame";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 76;
@@ -4160,7 +2780,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_port_currently_debug[3]";
+	CHANNEL = "xmit_ctrl_write_frame[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 77;
@@ -4170,7 +2790,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_port_currently_debug[2]";
+	CHANNEL = "xmit_ctrl_write_frame[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 78;
@@ -4180,7 +2800,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_port_currently_debug[1]";
+	CHANNEL = "xmit_ctrl_write_frame[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 79;
@@ -4190,7 +2810,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_port_currently_debug[0]";
+	CHANNEL = "xmit_ctrl_write_frame[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 80;
@@ -4200,17 +2820,17 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out";
+	CHANNEL = "xmit_frame_out";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 81;
 	TREE_LEVEL = 0;
-	CHILDREN = 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105;
+	CHILDREN = 82, 83, 84, 85, 86, 87, 88, 89;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out[23]";
+	CHANNEL = "xmit_frame_out[7]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 82;
@@ -4220,7 +2840,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out[22]";
+	CHANNEL = "xmit_frame_out[6]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 83;
@@ -4230,7 +2850,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out[21]";
+	CHANNEL = "xmit_frame_out[5]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 84;
@@ -4240,7 +2860,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out[20]";
+	CHANNEL = "xmit_frame_out[4]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 85;
@@ -4250,7 +2870,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out[19]";
+	CHANNEL = "xmit_frame_out[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 86;
@@ -4260,7 +2880,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out[18]";
+	CHANNEL = "xmit_frame_out[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 87;
@@ -4270,7 +2890,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out[17]";
+	CHANNEL = "xmit_frame_out[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 88;
@@ -4280,7 +2900,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out[16]";
+	CHANNEL = "xmit_frame_out[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Unsigned;
 	TREE_INDEX = 89;
@@ -4290,305 +2910,10 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "recv_handler_1_control_block_debug_out[15]";
+	CHANNEL = "xmit_high_priority";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
+	RADIX = Binary;
 	TREE_INDEX = 90;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[14]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 91;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[13]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 92;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[12]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 93;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[11]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 94;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[10]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 95;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[9]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 96;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[8]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 97;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[7]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 98;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[6]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 99;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[5]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 100;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[4]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 101;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[3]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 102;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[2]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 103;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[1]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 104;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "recv_handler_1_control_block_debug_out[0]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 105;
-	TREE_LEVEL = 1;
-	PARENT = 81;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_queue_in_debug_out";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 106;
-	TREE_LEVEL = 0;
-	CHILDREN = 107, 108, 109, 110, 111, 112, 113, 114;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_queue_in_debug_out[7]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 107;
-	TREE_LEVEL = 1;
-	PARENT = 106;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_queue_in_debug_out[6]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 108;
-	TREE_LEVEL = 1;
-	PARENT = 106;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_queue_in_debug_out[5]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 109;
-	TREE_LEVEL = 1;
-	PARENT = 106;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_queue_in_debug_out[4]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 110;
-	TREE_LEVEL = 1;
-	PARENT = 106;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_queue_in_debug_out[3]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 111;
-	TREE_LEVEL = 1;
-	PARENT = 106;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_queue_in_debug_out[2]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 112;
-	TREE_LEVEL = 1;
-	PARENT = 106;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_queue_in_debug_out[1]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 113;
-	TREE_LEVEL = 1;
-	PARENT = 106;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_queue_in_debug_out[0]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 114;
-	TREE_LEVEL = 1;
-	PARENT = 106;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "vlan_discard_out_debug";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 115;
-	TREE_LEVEL = 0;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_buffer_empty_out_debug";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 116;
-	TREE_LEVEL = 0;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_transmitted_debug_out";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 117;
-	TREE_LEVEL = 0;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "control_block_buffer_read_debug_out";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 118;
-	TREE_LEVEL = 0;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "frame_buffer_read_debug_out";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 119;
-	TREE_LEVEL = 0;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "debug_start_between_out";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 120;
 	TREE_LEVEL = 0;
 }
 
@@ -4597,7 +2922,7 @@ DISPLAY_LINE
 	CHANNEL = "monitor_high_priority";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 121;
+	TREE_INDEX = 91;
 	TREE_LEVEL = 0;
 }
 
@@ -4606,7 +2931,7 @@ DISPLAY_LINE
 	CHANNEL = "monitor_look_now";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 122;
+	TREE_INDEX = 92;
 	TREE_LEVEL = 0;
 }
 
@@ -4615,16 +2940,7 @@ DISPLAY_LINE
 	CHANNEL = "monitor_tagged";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 123;
-	TREE_LEVEL = 0;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_high_priority";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 124;
+	TREE_INDEX = 93;
 	TREE_LEVEL = 0;
 }
 
@@ -4633,9 +2949,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 125;
+	TREE_INDEX = 94;
 	TREE_LEVEL = 0;
-	CHILDREN = 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137;
+	CHILDREN = 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106;
 }
 
 DISPLAY_LINE
@@ -4643,9 +2959,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[11]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 126;
+	TREE_INDEX = 95;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4653,9 +2969,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[10]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 127;
+	TREE_INDEX = 96;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4663,9 +2979,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[9]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 128;
+	TREE_INDEX = 97;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4673,9 +2989,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[8]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 129;
+	TREE_INDEX = 98;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4683,9 +2999,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[7]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 130;
+	TREE_INDEX = 99;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4693,9 +3009,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[6]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 131;
+	TREE_INDEX = 100;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4703,9 +3019,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[5]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 132;
+	TREE_INDEX = 101;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4713,9 +3029,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[4]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 133;
+	TREE_INDEX = 102;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4723,9 +3039,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[3]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 134;
+	TREE_INDEX = 103;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4733,9 +3049,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 135;
+	TREE_INDEX = 104;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4743,9 +3059,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 136;
+	TREE_INDEX = 105;
 	TREE_LEVEL = 1;
-	PARENT = 125;
+	PARENT = 94;
 }
 
 DISPLAY_LINE
@@ -4753,449 +3069,9 @@ DISPLAY_LINE
 	CHANNEL = "monitor_frame_id[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
-	TREE_INDEX = 137;
+	TREE_INDEX = 106;
 	TREE_LEVEL = 1;
-	PARENT = 125;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 138;
-	TREE_LEVEL = 0;
-	CHILDREN = 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[23]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 139;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[22]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 140;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[21]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 141;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[20]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 142;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[19]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 143;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[18]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 144;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[17]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 145;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[16]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 146;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[15]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 147;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[14]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 148;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[13]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 149;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[12]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 150;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[11]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 151;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[10]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 152;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[9]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 153;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[8]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 154;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[7]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 155;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[6]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 156;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[5]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 157;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[4]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 158;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[3]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 159;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[2]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 160;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[1]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 161;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_control_block_out[0]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 162;
-	TREE_LEVEL = 1;
-	PARENT = 138;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_control_block";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 163;
-	TREE_LEVEL = 0;
-	CHILDREN = 164, 165, 166, 167;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_control_block[3]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 164;
-	TREE_LEVEL = 1;
-	PARENT = 163;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_control_block[2]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 165;
-	TREE_LEVEL = 1;
-	PARENT = 163;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_control_block[1]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 166;
-	TREE_LEVEL = 1;
-	PARENT = 163;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_control_block[0]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 167;
-	TREE_LEVEL = 1;
-	PARENT = 163;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_frame";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 168;
-	TREE_LEVEL = 0;
-	CHILDREN = 169, 170, 171, 172;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_frame[3]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 169;
-	TREE_LEVEL = 1;
-	PARENT = 168;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_frame[2]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 170;
-	TREE_LEVEL = 1;
-	PARENT = 168;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_frame[1]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 171;
-	TREE_LEVEL = 1;
-	PARENT = 168;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_ctrl_write_frame[0]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 172;
-	TREE_LEVEL = 1;
-	PARENT = 168;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_frame_out";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 173;
-	TREE_LEVEL = 0;
-	CHILDREN = 174, 175, 176, 177, 178, 179, 180, 181;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_frame_out[7]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 174;
-	TREE_LEVEL = 1;
-	PARENT = 173;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_frame_out[6]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 175;
-	TREE_LEVEL = 1;
-	PARENT = 173;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_frame_out[5]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 176;
-	TREE_LEVEL = 1;
-	PARENT = 173;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_frame_out[4]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 177;
-	TREE_LEVEL = 1;
-	PARENT = 173;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_frame_out[3]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 178;
-	TREE_LEVEL = 1;
-	PARENT = 173;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_frame_out[2]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 179;
-	TREE_LEVEL = 1;
-	PARENT = 173;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_frame_out[1]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 180;
-	TREE_LEVEL = 1;
-	PARENT = 173;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "xmit_frame_out[0]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Unsigned;
-	TREE_INDEX = 181;
-	TREE_LEVEL = 1;
-	PARENT = 173;
+	PARENT = 94;
 }
 
 TIME_BAR
