@@ -46,7 +46,7 @@ end frame_handler;
 architecture frame of frame_handler is
 	type state_type is (initial_state, wait_state, peek_state, write_state, delete_state, frame_finished_state);
 	signal state_current, state_next : state_type;
-	signal counter : integer range 0 to 2056 := 0; --2048 + 8 = 2056, holds the value of counter
+	signal counter : integer range 0 to 2056 := 0; --204	+ 8 = 2056, holds the value of counter
 	signal register_output : std_logic_vector (31 DOWNTO 0);
 	signal register_input : std_logic_vector (31 DOWNTO 0);
 	signal register_write_enable : std_logic;
