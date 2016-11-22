@@ -2286,9 +2286,7 @@ TRANSITION_LIST("recv_control_block_in_1[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 60.0;
-		LEVEL 0 FOR 7920.0;
+		LEVEL 0 FOR 8000.0;
 	}
 }
 
@@ -2315,7 +2313,9 @@ TRANSITION_LIST("recv_control_block_in_1[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 8000.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 60.0;
+		LEVEL 0 FOR 7920.0;
 	}
 }
 
@@ -2324,9 +2324,7 @@ TRANSITION_LIST("recv_control_block_in_1[3]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 60.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 7920.0;
+		LEVEL 0 FOR 8000.0;
 	}
 }
 
@@ -2353,7 +2351,9 @@ TRANSITION_LIST("recv_control_block_in_1[0]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 8000.0;
+		LEVEL 0 FOR 60.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 7920.0;
 	}
 }
 
@@ -2506,9 +2506,7 @@ TRANSITION_LIST("recv_control_block_in_2[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 7960.0;
+		LEVEL 0 FOR 8000.0;
 	}
 }
 
@@ -2535,7 +2533,9 @@ TRANSITION_LIST("recv_control_block_in_2[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 8000.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 7960.0;
 	}
 }
 
