@@ -52,7 +52,7 @@ architecture frame of frame_handler is
 	signal register_write_enable : std_logic;
 	signal is_queue_empty: std_logic;
 	--signal is_queue_empty : std_logic;
-	constant FRAME_CHUNK_SIZE : integer := 8;	
+	constant FRAME_CHUNK_SIZE : integer := 1;	
 	
 	
 begin

@@ -1266,9 +1266,7 @@ TRANSITION_LIST("recv_control_block_in_1[7]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 20.0;
-		LEVEL 1 FOR 20.0;
-		LEVEL 0 FOR 2960.0;
+		LEVEL 0 FOR 3000.0;
 	}
 }
 
@@ -1295,7 +1293,9 @@ TRANSITION_LIST("recv_control_block_in_1[4]")
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 0 FOR 3000.0;
+		LEVEL 0 FOR 20.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 2960.0;
 	}
 }
 
