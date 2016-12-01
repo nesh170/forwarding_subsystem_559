@@ -24,13 +24,8 @@ PORT(
 		recv_ctrl_write_control_block: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		
 		--Table Subsystem
---		table_destination_port: IN STD_LOGIC_VECTOR(3 DOWNTO 0);
---		table_input_ready: IN STD_LOGIC;
---		table_output_ready: IN STD_LOGIC;
---		table_source_address: OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
---		table_destination_address: OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
---		table_source_port: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
---		table_trigger: OUT STD_LOGIC;
+		table_monitor_not_found: OUT STD_LOGIC;
+		table_monitor_access: OUT STD_LOGIC;
 		
 		--Monitoring Subsystem
 		monitor_look_now     : OUT STD_LOGIC;
@@ -43,23 +38,23 @@ PORT(
 		xmit_ctrl_write_frame:OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 		xmit_control_block_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
 		xmit_ctrl_write_control_block: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		xmit_high_priority:OUT STD_LOGIC;
+		xmit_high_priority:OUT STD_LOGIC
 		
-		--Debugging Port
-		control_block_debug_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
-		recv_port_currently_debug: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		is_empty_debug_recv_control_block:OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-		recv_handler_1_control_block_debug_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
-		frame_queue_in_debug_out: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
-		frame_buffer_empty_out_debug: OUT STD_LOGIC;
-		vlan_discard_out_debug	: OUT STD_LOGIC;
-		control_block_buffer_read_debug_out : OUT STD_LOGIC;
-		frame_buffer_read_debug_out : OUT STD_LOGIC;
-		debug_start_between_out: OUT STD_LOGIC;
-		frame_transmitted_debug_out: OUT STD_LOGIC;
-		table_trigger_debug_out,table_output_ready_debug_out,table_input_ready_debug_out: OUT STD_LOGIC;
-		frame_finished_signal_debug_out: OUT STD_LOGIC;
-		vlan_high_priority_debug_out: OUT STD_LOGIC
+		--Debugging Ports
+--		control_block_debug_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
+--		recv_port_currently_debug: OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+--		is_empty_debug_recv_control_block:OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+--		recv_handler_1_control_block_debug_out: OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
+--		frame_queue_in_debug_out: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+--		frame_buffer_empty_out_debug: OUT STD_LOGIC;
+--		vlan_discard_out_debug	: OUT STD_LOGIC;
+--		control_block_buffer_read_debug_out : OUT STD_LOGIC;
+--		frame_buffer_read_debug_out : OUT STD_LOGIC;
+--		debug_start_between_out: OUT STD_LOGIC;
+--		frame_transmitted_debug_out: OUT STD_LOGIC;
+--		table_trigger_debug_out,table_output_ready_debug_out,table_input_ready_debug_out: OUT STD_LOGIC;
+--		frame_finished_signal_debug_out: OUT STD_LOGIC;
+--		vlan_high_priority_debug_out: OUT STD_LOGIC
 	);
 END forwarding_subsystem;	
 	
@@ -87,7 +82,7 @@ ARCHITECTURE fs_arch OF forwarding_subsystem IS
 		SIGNAL table_source_port: STD_LOGIC_VECTOR(3 DOWNTO 0);
 		SIGNAL table_trigger: STD_LOGIC;
 BEGIN
-is_empty_debug_recv_control_block <= recv_control_block_empty;
+--is_empty_debug_recv_control_block <= recv_control_block_empty;
 	recv_handler_1: receive_handler PORT MAP(
 		clock => clock,
 		reset => reset,
@@ -103,7 +98,7 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		frame_empty => recv_frame_empty(0)
 	);
 	
-	recv_handler_1_control_block_debug_out <= recv_control_block_out_sig_1;
+--	recv_handler_1_control_block_debug_out <= recv_control_block_out_sig_1;
 	
 	recv_handler_2: receive_handler PORT MAP(
 		clock => clock,
@@ -175,8 +170,8 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		recv_port_to_read => receive_port_read
 	);
 	
-	frame_transmitted_debug_out <= frame_fully_transmitted_sig;
-	recv_port_currently_debug <= receive_port_read;
+--	frame_transmitted_debug_out <= frame_fully_transmitted_sig;
+--	recv_port_currently_debug <= receive_port_read;
 	
 	control_block_buffer: control_block_queue PORT MAP (
 		aclr		=> reset,	
@@ -188,7 +183,7 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		q			=> control_block_buffer_out
 	);
 	
-	control_block_debug_out <= control_block_buffer_out;
+--	control_block_debug_out <= control_block_buffer_out;
 	
 	frame_handle: frame_handler PORT MAP (
 		clock_sig => clock,
@@ -208,8 +203,8 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		write_enable_frame_buffer_queue => write_enable_frame_buffer_queue
 	);
 	
-	frame_queue_in_debug_out <= frame_queue_in;
-	frame_finished_signal_debug_out <= frame_finished_sig; 
+--	frame_queue_in_debug_out <= frame_queue_in;
+--	frame_finished_signal_debug_out <= frame_finished_sig; 
 
 	frame_buffer : frame_queue PORT MAP (
 		aclr		=> reset,	
@@ -250,10 +245,10 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		start_bit => frame_finished_sig
 	);
 	
-	vlan_high_priority_debug_out <= vlan_priority_bit;
+--	vlan_high_priority_debug_out <= vlan_priority_bit;
 	
 	--table source port
-	table_source_port <= receive_port_read;
+		table_source_port <= receive_port_read;
 	--monitor outputs
 		monitor_look_now <= vlan_priority_read_valid; 
 		monitor_tagged <= vlan_tagged_bit;
@@ -277,14 +272,13 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		frame_data_out => xmit_frame_out,
 		ctrl_block_out => xmit_control_block_out,
 		discard => vlan_discard_bit,
-		start_between_debug_out => debug_start_between_out,
 		sig_complete => frame_fully_transmitted_sig
 	);
-	control_block_buffer_read_debug_out <= read_control_block_buffer;
-	frame_buffer_read_debug_out <= frame_buffer_read;
-	frame_buffer_empty_out_debug <= is_empty_frame_buffer;
-	vlan_discard_out_debug <= vlan_discard_bit;
-	
+--	control_block_buffer_read_debug_out <= read_control_block_buffer;
+--	frame_buffer_read_debug_out <= frame_buffer_read;
+--	frame_buffer_empty_out_debug <= is_empty_frame_buffer;
+--	vlan_discard_out_debug <= vlan_discard_bit;
+
 	
 	table : address_table PORT MAP(
 		clock => clock,
@@ -295,11 +289,13 @@ is_empty_debug_recv_control_block <= recv_control_block_empty;
 		trigger => table_trigger,
 		destination_port => table_destination_port,
 		output_ready => table_output_ready,
-		input_ready => table_input_ready
+		input_ready => table_input_ready,
+		monitor_not_found => table_monitor_not_found,
+		monitor_access => table_monitor_access
 	);
-	
-	table_trigger_debug_out <= table_trigger;
-	table_output_ready_debug_out <= table_output_ready;
-	table_input_ready_debug_out <= table_input_ready;
+
+--	table_trigger_debug_out <= table_trigger;
+--	table_output_ready_debug_out <= table_output_ready;
+--	table_input_ready_debug_out <= table_input_ready;
 
 END fs_arch;
