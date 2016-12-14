@@ -206,14 +206,14 @@ BEGIN
 				ctrl_write_counter_register <= '0';
 				register_input_frame_endpoint_1 <= std_logic_vector(to_unsigned(to_integer(unsigned(register_output_frame_endpoint_1)) + to_integer(unsigned(cb_memory_output_1(11 DOWNTO 0))),register_input_frame_endpoint_1'length));	
 				register_input_frame_endpoint_2 <= std_logic_vector(to_unsigned(to_integer(unsigned(register_output_frame_endpoint_2)) + to_integer(unsigned(cb_memory_output_2(11 DOWNTO 0))),register_input_frame_endpoint_2'length));
-				if(cb_memory_output_1 /= x"0000") then
+				if(cb_memory_output_1 /= x"000000") then
 					cb_write_1_fwd <= '1';
 					ctrl_write_frame_endpoint_1_register <= '1';
 				else
 					cb_write_1_fwd <= '0';
 					ctrl_write_frame_endpoint_1_register <= '0';
 				end if;
-				if(cb_memory_output_2 /= x"0000") then
+				if(cb_memory_output_2 /= x"000000") then
 					cb_write_2_fwd <= '1';
 					ctrl_write_frame_endpoint_2_register <= '1';
 				else
@@ -316,7 +316,7 @@ BEGIN
 				ctrl_write_frame_2_register <= '0';
 				frame_write_1_fwd <= '0';
 				frame_write_2_fwd <= '0';				
-				if((cb_memory_output_1 /= x"0000" or cb_memory_output_2 /= x"0000")) then 
+				if((cb_memory_output_1 /= x"000000" or cb_memory_output_2 /= x"000000")) then 
 					next_state <= process_stage;
 				else
 					next_state <= end_state;
