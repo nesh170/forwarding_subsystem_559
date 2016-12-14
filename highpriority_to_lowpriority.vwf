@@ -5090,7 +5090,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_1";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 107;
 	TREE_LEVEL = 0;
 	CHILDREN = 108, 109, 110, 111, 112, 113, 114, 115;
@@ -5100,7 +5100,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_1[7]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 108;
 	TREE_LEVEL = 1;
 	PARENT = 107;
@@ -5110,7 +5110,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_1[6]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 109;
 	TREE_LEVEL = 1;
 	PARENT = 107;
@@ -5120,7 +5120,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_1[5]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 110;
 	TREE_LEVEL = 1;
 	PARENT = 107;
@@ -5130,7 +5130,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_1[4]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 111;
 	TREE_LEVEL = 1;
 	PARENT = 107;
@@ -5140,7 +5140,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_1[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 112;
 	TREE_LEVEL = 1;
 	PARENT = 107;
@@ -5150,7 +5150,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_1[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 113;
 	TREE_LEVEL = 1;
 	PARENT = 107;
@@ -5160,7 +5160,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_1[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 114;
 	TREE_LEVEL = 1;
 	PARENT = 107;
@@ -5170,7 +5170,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_1[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 115;
 	TREE_LEVEL = 1;
 	PARENT = 107;
@@ -5180,7 +5180,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_2";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 116;
 	TREE_LEVEL = 0;
 	CHILDREN = 117, 118, 119, 120, 121, 122, 123, 124;
@@ -5190,7 +5190,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_2[7]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 117;
 	TREE_LEVEL = 1;
 	PARENT = 116;
@@ -5200,7 +5200,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_2[6]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 118;
 	TREE_LEVEL = 1;
 	PARENT = 116;
@@ -5210,7 +5210,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_2[5]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 119;
 	TREE_LEVEL = 1;
 	PARENT = 116;
@@ -5220,7 +5220,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_2[4]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 120;
 	TREE_LEVEL = 1;
 	PARENT = 116;
@@ -5230,7 +5230,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_2[3]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 121;
 	TREE_LEVEL = 1;
 	PARENT = 116;
@@ -5240,7 +5240,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_2[2]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 122;
 	TREE_LEVEL = 1;
 	PARENT = 116;
@@ -5250,7 +5250,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_2[1]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 123;
 	TREE_LEVEL = 1;
 	PARENT = 116;
@@ -5260,7 +5260,7 @@ DISPLAY_LINE
 {
 	CHANNEL = "recv_frame_in_2[0]";
 	EXPAND_STATUS = COLLAPSED;
-	RADIX = Hexadecimal;
+	RADIX = Unsigned;
 	TREE_INDEX = 124;
 	TREE_LEVEL = 1;
 	PARENT = 116;
