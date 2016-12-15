@@ -10,7 +10,7 @@ ENTITY control_block_logic IS
 	PORT (	clock : IN	STD_LOGIC;
 				reset	: IN	STD_LOGIC;
 				receive_port_read : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-            is_empty : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            			is_empty : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 				data_in_1 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
 				data_in_2 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
 				data_in_3 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
