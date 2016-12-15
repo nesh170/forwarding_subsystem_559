@@ -8,19 +8,19 @@ use work.all;
 
 ENTITY control_block_logic IS
 	PORT (	clock : IN	STD_LOGIC;
-				reset	: IN	STD_LOGIC;
-				receive_port_read : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-            			is_empty : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-				data_in_1 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
-				data_in_2 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
-				data_in_3 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
-				data_in_4 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
-				read_enable : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-				write_enable : OUT STD_LOGIC;
-				is_empty_stv : OUT STD_LOGIC;
-				port_change_output: OUT STD_LOGIC;
-				data_out : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
-				counter_output : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
+		reset	: IN	STD_LOGIC;
+		receive_port_read : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            	is_empty : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		data_in_1 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
+		data_in_2 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
+		data_in_3 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
+		data_in_4 : IN STD_LOGIC_VECTOR(23 DOWNTO 0);
+		read_enable : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+		write_enable : OUT STD_LOGIC;
+		is_empty_stv : OUT STD_LOGIC;
+		port_change_output: OUT STD_LOGIC;
+		data_out : OUT STD_LOGIC_VECTOR(23 DOWNTO 0);
+		counter_output : OUT STD_LOGIC_VECTOR(31 DOWNTO 0));
 END control_block_logic;
 
 ARCHITECTURE cbl OF control_block_logic IS 
