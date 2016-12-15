@@ -6,13 +6,13 @@ use ieee.numeric_std.all;
 use work.all;
 
 entity starvation_management_system is
-	port(clock		   			:in std_logic;
-		  reset		   			:in std_logic;
-		  is_empty_control_block:in std_logic;
-		  is_empty_block_buffer :in std_logic;
-		  is_empty_frame_buffer :in std_logic;
-		  frame_fully_transmited:in std_logic;
-		  recv_port_to_read		:out std_logic_vector (3 downto 0));
+	port(	clock:in std_logic;
+		reset:in std_logic;
+		is_empty_control_block:in std_logic;
+		is_empty_block_buffer:in std_logic;
+		is_empty_frame_buffer:in std_logic;
+		frame_fully_transmited:in std_logic;
+		recv_port_to_read:out std_logic_vector (3 downto 0));
 end starvation_management_system;
 
 architecture starvation_management_system_architecture of starvation_management_system is
